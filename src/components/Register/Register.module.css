@@ -7,10 +7,13 @@
 	padding: 20px;
 	background: #f4f7f8;
 	border-radius: 8px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: 'Lato', sans-serif;
 }
+        
 .form-style-5 fieldset{
 	border: none;
+    color:#686060;
+    font-family: 'Lato', sans-serif;
 }
 .form-style-5 legend {
 	font-size: 1.4em;
@@ -30,7 +33,7 @@
 .form-style-5 input[type="url"],
 .form-style-5 textarea,
 .form-style-5 select {
-	font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: 'Lato', sans-serif;
 	background: rgba(255,255,255,.1);
 	border: none;
 	border-radius: 4px;
@@ -110,7 +113,7 @@
 }
 .register-text {
     margin-right: 10px;
-    color: #474d50;
+    color: #586165;
     margin-left: 10px;
     
 }
@@ -118,11 +121,16 @@
     margin-bottom: 7px;
 }
 ::placeholder {
-    color: #474d50;
+    color: #586165;
+    font-family: 'Lato', sans-serif;
     opacity: 1; 
   }
   .formHeader {
     text-align: center;
     margin-bottom: 3%;
     margin-top: 3%;
+    color: rgb(49, 56, 56);
+  }
+  body {
+    background-color: #EFEFEF;
   }

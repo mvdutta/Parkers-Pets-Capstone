@@ -51,7 +51,7 @@
 .homepage-header {
     text-align: center;
     margin-top: 50px;
-    color: #FF3B3F;
+    color: rgb(49, 56, 56);
     font-size: 1.8rem;
 }
 
@@ -96,7 +96,6 @@
 }
 .login-text {
     margin-bottom: 10px;
-    font-weight: bold;
 }
 .hidden {
     visibility: hidden;

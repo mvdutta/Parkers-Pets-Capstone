@@ -56,8 +56,8 @@ export const HomePage = () => {
     } 
     const linkStyle = {
         margin: "1rem",
-        textDecoration: "none",
-        color: 'red',
+        color: 'lightBlue',
+        fontWeight: 'bold'
       };
   return (<>
     <div>
