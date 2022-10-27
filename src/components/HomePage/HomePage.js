@@ -31,18 +31,24 @@ export const HomePage = () => {
                     localStorage.setItem("parker_user", JSON.stringify(foundUser))
                     setCurrentUser(foundUser)
                     setLoggedIn(true)
-                    let whichProfile = ""
-                    if (foundUser.role===1){
-                        whichProfile = "/clientprofile"
-                    } else{
-                        whichProfile = "/employeeprofile"
-                    }
-                
-                    navigate(whichProfile)
+                    return foundUser
                 }
                 else {
                     window.alert("Invalid login")
                 }
+            }).then((foundUser)=>{
+                if (!foundUser){
+                    return navigate("/")
+                    
+                }
+                let whichProfile = ""
+                if (foundUser.role===1){
+                    whichProfile = "/clientprofile"
+                } else{
+                    whichProfile = "/employeeprofile"
+                }
+            
+                navigate(whichProfile)
             })
     }
 
