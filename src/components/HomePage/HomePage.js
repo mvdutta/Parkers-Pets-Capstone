@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../App'
 import { NavBar } from '../NavBar/NavBar'
 import "./HomePage.css"
@@ -74,7 +74,7 @@ export const HomePage = () => {
             </div>
             <button className="login-button" onClick={handleLogin}>login</button>
             <p className="login-text">Don't have an account yet?</p>
-            <p className="login-text">Register Here</p>
+            <p className="login-text"><Link to="/register">Register Here</Link></p>
             </div>
         </div>
     </div>
