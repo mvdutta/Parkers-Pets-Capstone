@@ -1,6 +1,8 @@
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { UserContext } from "../../App"
+import { NavBar } from "../NavBar/NavBar"
 import styles from "./Register.module.css"
 
 export const Register = (props) => {
@@ -12,6 +14,8 @@ export const Register = (props) => {
         role: ""
         
     })
+    const {setLoggedIn} = useContext(UserContext)
+
     let navigate = useNavigate()
 
     const registerNewUser = () => {
@@ -26,8 +30,7 @@ export const Register = (props) => {
             .then(createdUser => {
                 if (createdUser.hasOwnProperty("id")) {
                     localStorage.setItem("parker_user", JSON.stringify(createdUser))
-
-                    navigate("/")
+                    setLoggedIn(true)       
                 }
             })
     }
@@ -54,36 +57,38 @@ export const Register = (props) => {
         setUser(copy)
     }
 
-    return (
+    return (<>
+        <NavBar/>      
         <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="register-header">Please Register for Kandy Korner</h1>
-                <fieldset>
+            <form className={styles["form"]} onSubmit={handleRegister}>
+                <h1 className={styles["register-header"]}>Please Register for Parker's Pet Sitting</h1>
+                <div>
                     <label htmlFor="fullName" className="register-text"> Full Name </label>
                     <input onChange={updateUser}
                            type="text" id="fullName" className="form-control"
                            placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
+                </div>
+                <div>
                     <label htmlFor="email" className="register-text"> Email address </label>
                     <input onChange={updateUser}
                         type="email" id="email" className="form-control"
                         placeholder="Enter Email address" required />
-                </fieldset>
-                <fieldset>
+                </div>
+                <div>
                     <input onChange={(evt) => {
                         const copy = {...user}
-                        copy.isStaff = evt.target.checked
+                        copy.role = evt.target.checked?0:1
                         setUser(copy)
                     }}
                         type="checkbox" id="isStaff" />
                     <label htmlFor="email" className="register-text"> I am an employee </label>
-                </fieldset>
-                <fieldset>
+                </div>
+                <div>
                     <button type="submit"> Register </button>
-                </fieldset>
+                </div>
             </form>
         </main>
+        </>
     )
 }
 
