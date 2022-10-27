@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../App'
 import { NavBar } from '../NavBar/NavBar'
 import "./HomePage.css"
 
 export const HomePage = () => {
-    const [email, setEmail] = useState("")
-    const navigate = useNavigate()
+    const [email, setEmail] = useState("jones@email.com")
+    const [currentUser, setCurrentUser] = useState({})
+    const {loggedIn, setLoggedIn} = useContext(UserContext)
+
+    useEffect(()=> {
+        if (loggedIn) {
+            const localParkerUser = localStorage.getItem("parker_user")
+            setCurrentUser(JSON.parse(localParkerUser))
+        } else{
+            setCurrentUser({})
+        }
+       
+    },[loggedIn])
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -14,12 +26,10 @@ export const HomePage = () => {
             .then(res => res.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
-                    const user = foundUsers[0]
-                    localStorage.setItem("parker_user", JSON.stringify({
-                        id: user.id,
-                        role: user.role
-                    }))
-                    console.log(user)
+                    const foundUser = foundUsers[0]
+                    localStorage.setItem("parker_user", JSON.stringify(foundUser))
+                    setCurrentUser(foundUser)
+                    setLoggedIn(true)
                 }
                 else {
                     window.alert("Invalid login")
@@ -28,16 +38,17 @@ export const HomePage = () => {
     }
 
     function playVideo(e) {
-        e.play();
-        e.classList.remove('fading');
+        const vid = e.currentTarget
+        vid.play();
+        vid.classList.remove('fading');
         setTimeout(() => {
-            e.classList.add('fading');
-        }, (e.duration / e.playbackRate - 1) * 1000)
+            vid.classList.add('fading');
+        }, (vid.duration / vid.playbackRate - 1) * 1000)
     } 
   return (<>
     <div>
         <NavBar/>
-     
+        {loggedIn && <div>Hello {currentUser.fullName}</div>}
         <video controls preload="true" autoPlay playsInline loop muted id='video' onCanPlay={(e)=>{playVideo(e)}} onEnded={(e)=>{playVideo(e)}}>
             <source src = 'https://player.vimeo.com/external/515948828.sd.mp4?s=14b4f5fa6010a439ad44da0954c4cbc694e00520&profile_id=164&oauth2_token_id=57447761' type='video/mp4'/>
         </video>   
@@ -46,7 +57,7 @@ export const HomePage = () => {
         <h1>Parker's Pet Sitting</h1>
         <p>Customizable and Trustworthy Care for Your Pet</p>
         </div>
-        <div class="login-holder">
+        <div className={loggedIn?`login-holder hidden`:`login-holder`}>
             <div className="login-container">
             <h2 className='login-header'>Client Login</h2>
             <div>

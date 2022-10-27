@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
+import { UserContext } from '../../App'
+
 
 export const Authorized = ({children}) => {
- if(localStorage.getItem("parker_user")){
-    return children
- } else {
-    return <Navigate to={"/login"} replace />
- }
+   const {loggedIn} = useContext(UserContext)
+   
+   if(loggedIn){
+      return children
+   } else {
+      return <Navigate to={"/denied"} replace />
+   }
 }

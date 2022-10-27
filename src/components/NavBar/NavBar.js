@@ -1,36 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { UserContext } from '../../App'
 import styles from "./NavBar.module.css"
 
 
 export const NavBar = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
-    const [user, setUser] = useState({})
+    const [currentUser, setCurrentUser] = useState({})
     const navigate = useNavigate()
+    const {loggedIn, setLoggedIn} = useContext(UserContext)
 
     useEffect(()=> {
-        const localParkerUser = localStorage.getItem("parker_user")
-   
-        if (localParkerUser) {
-            const parkerUserObject = JSON.parse(localParkerUser)
-            setLoggedIn(true)
-            setUser(parkerUserObject)
+        if (loggedIn) {
+            const localParkerUser = localStorage.getItem("parker_user")
+            setCurrentUser(JSON.parse(localParkerUser))
+        } else{
+            setCurrentUser({})
         }
+       
     },[loggedIn])
-    
-    const logout = () => {
-        localStorage.clear()
-        setLoggedIn(false)
+    let whichProfile = ""
+    if (currentUser.role===1){
+        whichProfile = "/clientprofile"
+    } else{
+        whichProfile = "/employeeprofile"
     }
+
+    const logout = () =>{
+        setLoggedIn(false)
+        localStorage.clear()
+    }
+    
   return (
-    <div>
-        <ul className={styles.navBar}>
+    <div className={styles.navBar}>
+        <ul >
             <li><Link to="/">Home</Link></li>
             <li><Link to="/aboutus">About Us</Link></li>
-            <li>{loggedIn && user.role === 0? "my profile": ""}</li>
-            <li onClick={logout}>{loggedIn && "Logout"}</li>
-           
+            <li>{loggedIn && <Link to={whichProfile}>Profile</Link>}</li>
+            <li>{loggedIn && <Link to="/" onClick={logout}>Logout</Link>}</li> 
         </ul>
+    {loggedIn && <div>Welcome {currentUser.fullName}</div>}
     </div>
   )
 }

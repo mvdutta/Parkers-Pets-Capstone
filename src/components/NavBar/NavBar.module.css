@@ -1,7 +1,13 @@
 .navBar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #CAEBF2;
     height: 7vh;
+}
+
+.navBar ul{
+    display: flex;
 }
 .navBar li {
     list-style: none;
