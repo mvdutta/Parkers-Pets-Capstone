@@ -26,11 +26,19 @@ export const HomePage = () => {
                 }
             })
     }
+
+    function playVideo(e) {
+        e.play();
+        e.classList.remove('fading');
+        setTimeout(() => {
+            e.classList.add('fading');
+        }, (e.duration / e.playbackRate - 1) * 1000)
+    } 
   return (<>
     <div>
         <NavBar/>
      
-        <video controls preload="true" autoPlay loop muted id='video'>
+        <video controls preload="true" autoPlay playsInline loop muted id='video' onCanPlay={(e)=>{playVideo(e)}} onEnded={(e)=>{playVideo(e)}}>
             <source src = 'https://player.vimeo.com/external/515948828.sd.mp4?s=14b4f5fa6010a439ad44da0954c4cbc694e00520&profile_id=164&oauth2_token_id=57447761' type='video/mp4'/>
         </video>   
         <div className='overlay'></div>

@@ -54,3 +54,11 @@
     color: #FF3B3F;
     font-size: 1.8rem;
 }
+
+.transition {
+    transition: all 1s;
+}
+
+.transition.fading {
+    opacity: 0;
+}
