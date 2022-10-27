@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavBar } from '../NavBar/NavBar'
 
-export const MyProfile = () => {
+export const EmployeeProfile = () => {
   return (
     <div>
         <NavBar/>
-        <h1>My Profile</h1>
+        <h1>Employee Profile</h1>
     </div>
   )
 }

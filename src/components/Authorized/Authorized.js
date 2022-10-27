@@ -5,6 +5,6 @@ export const Authorized = ({children}) => {
  if(localStorage.getItem("parker_user")){
     return children
  } else {
-    return <Navigate to={"/login"} replace/>
+    return <Navigate to={"/login"} replace />
  }
 }

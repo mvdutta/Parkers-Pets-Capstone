@@ -1,6 +1,7 @@
 .navBar {
     display: flex;
-    background-color: rgb(120, 165, 165);
+    background-color: #CAEBF2;
+    height: 7vh;
 }
 .navBar li {
     list-style: none;

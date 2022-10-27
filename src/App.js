@@ -4,7 +4,7 @@ import { HomePage } from './components/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
 import { AboutUs } from './components/AboutUs/AboutUs';
 import { Login } from './components/Login/Login';
-import { MyProfile } from './components/MyProfile/MyProfile';
+import { EmployeeProfile } from './components/EmployeeProfile/EmployeeProfile';
 import { Authorized } from './components/Authorized/Authorized';
 export function App() {
   return (
@@ -13,9 +13,9 @@ export function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/aboutus" element={<AboutUs/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/myprofile" element={
+        <Route path="/employeeprofile" element={
         <Authorized>
-            <MyProfile/>
+            <EmployeeProfile/>
         </Authorized>
         }/>
         
