@@ -54,6 +54,11 @@ export const HomePage = () => {
             vid.classList.add('fading');
         }, (vid.duration / vid.playbackRate - 1) * 1000)
     } 
+    const linkStyle = {
+        margin: "1rem",
+        textDecoration: "none",
+        color: 'red',
+      };
   return (<>
     <div>
         <NavBar/>
@@ -74,7 +79,7 @@ export const HomePage = () => {
             </div>
             <button className="login-button" onClick={handleLogin}>login</button>
             <p className="login-text">Don't have an account yet?</p>
-            <p className="login-text"><Link to="/register">Register Here</Link></p>
+            <p className="login-text"><Link to="/register" style={linkStyle}>Register Here</Link></p>
             </div>
         </div>
     </div>

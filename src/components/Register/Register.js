@@ -9,7 +9,8 @@ export const Register = (props) => {
     const [user, setUser] = useState({
         email: "",
         fullName: "",
-        address: "",
+        streetAddress: "",
+        zipCode: "",
         phone: "",
         role: ""
         
@@ -58,37 +59,38 @@ export const Register = (props) => {
     }
 
     return (<>
-        <NavBar/>      
-        <main style={{ textAlign: "center" }}>
-            <form className={styles["form"]} onSubmit={handleRegister}>
-                <h1 className={styles["register-header"]}>Please Register for Parker's Pet Sitting</h1>
-                <div>
-                    <label htmlFor="fullName" className="register-text"> Full Name </label>
-                    <input onChange={updateUser}
-                           type="text" id="fullName" className="form-control"
-                           placeholder="Enter your name" required autoFocus />
-                </div>
-                <div>
-                    <label htmlFor="email" className="register-text"> Email address </label>
-                    <input onChange={updateUser}
-                        type="email" id="email" className="form-control"
-                        placeholder="Enter Email address" required />
-                </div>
-                <div>
-                    <input onChange={(evt) => {
+        <NavBar/>   
+        <h1 className={styles.formHeader}>Please Register for Parker's Pet Sitting</h1>
+        <div className={styles["form-style-5"]}>
+        <form onSubmit={handleRegister}>
+        <fieldset>
+        <legend><span className={styles["number"]}>1</span> Full Name & Email</legend>
+        <input onChange={updateUser} type="text" id="fullName" name="field1" placeholder="Full Name *" required autofocus/>
+        <input onChange={updateUser} type="email" id="email" name="field2" placeholder="Email *" required/>    
+        </fieldset>
+        <fieldset>
+        <legend><span className={styles["number"]}>2</span>Street Address, Zip Code & Phone</legend>
+        <input onChange={updateUser} type="text" id="streetAddress" name="field3" placeholder="Street Address *" required />
+        <input onChange={updateUser} type="text" id="zipCode" name="field4" placeholder="Zip Code *" required/>   
+        <input onChange={updateUser} type="text" id="phone" name="field5" placeholder="Phone Number *" required/>   
+        </fieldset>
+        <div className={styles.checkboxHolder}>
+        <label htmlFor="checkbox" className={styles["register-text"]}> I am an employee </label>
+    
+        <input className={styles.checkbox} onChange={(evt) => {
                         const copy = {...user}
                         copy.role = evt.target.checked?0:1
                         setUser(copy)
                     }}
-                        type="checkbox" id="isStaff" />
-                    <label htmlFor="email" className="register-text"> I am an employee </label>
-                </div>
-                <div>
-                    <button type="submit"> Register </button>
-                </div>
-            </form>
-        </main>
-        </>
+                        type="checkbox" id="employee" />
+        </div>
+     
+        <input type="submit" value="Submit" />
+        </form>
+        </div>
+       
+    </>
+
     )
 }
 
