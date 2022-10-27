@@ -46,9 +46,17 @@ export const HomePage = () => {
         <h1>Parker's Pet Sitting</h1>
         <p>Customizable and Trustworthy Care for Your Pet</p>
         </div>
-        <p>Client Login</p>
-        <input type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
-        <button onClick={handleLogin}>login</button>
+        <div class="login-holder">
+            <div className="login-container">
+            <h2 className='login-header'>Client Login</h2>
+            <div>
+            <input className="email-input" type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
+            </div>
+            <button className="login-button" onClick={handleLogin}>login</button>
+            <p className="login-text">Don't have an account yet?</p>
+            <p className="login-text">Register Here</p>
+            </div>
+        </div>
     </div>
     <div className='divider-wrapper'>
     <div className="custom-shape-divider-top-1666820762">
