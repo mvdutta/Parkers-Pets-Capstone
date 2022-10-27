@@ -9,7 +9,7 @@ import { Authorized } from './components/Authorized/Authorized';
 import { createContext, useEffect, useState } from 'react';
 import { ClientProfile } from './components/ClientProfile/ClientProfile';
 import { Denied, Page404 } from './components/Page404';
-
+//using contextAPI to create a global state accessible to all components in component tree
 export const UserContext = createContext({
   loggedIn: false,
   setLoggedIn: () => {},

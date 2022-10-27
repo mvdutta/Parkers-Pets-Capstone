@@ -8,6 +8,7 @@ export const HomePage = () => {
     const [email, setEmail] = useState("jones@email.com")
     const [currentUser, setCurrentUser] = useState({})
     const {loggedIn, setLoggedIn} = useContext(UserContext)
+    const navigate = useNavigate()
 
     useEffect(()=> {
         if (loggedIn) {
@@ -30,6 +31,14 @@ export const HomePage = () => {
                     localStorage.setItem("parker_user", JSON.stringify(foundUser))
                     setCurrentUser(foundUser)
                     setLoggedIn(true)
+                    let whichProfile = ""
+                    if (foundUser.role===1){
+                        whichProfile = "/clientprofile"
+                    } else{
+                        whichProfile = "/employeeprofile"
+                    }
+                
+                    navigate(whichProfile)
                 }
                 else {
                     window.alert("Invalid login")
