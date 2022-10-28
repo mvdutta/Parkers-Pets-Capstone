@@ -39,7 +39,7 @@ export const NavBar = () => {
             <li><Link className={styles.navLink} to="/">Our Team</Link></li>
             <li><Link className={styles.navLink} to="/">FAQ</Link></li>
             <li><Link className={styles.navLink} to="/">Contact Us</Link></li>
-            <li>{loggedIn && <Link className={styles.navLink}to={whichProfile}>Profile</Link>}</li>
+            <li>{loggedIn && <Link className={styles.navLink}to={whichProfile}>My Dashboard</Link>}</li>
             <li>{loggedIn && <Link className={styles.navLink}to="/" onClick={logout}>Logout</Link>}</li> 
         
         </ul>

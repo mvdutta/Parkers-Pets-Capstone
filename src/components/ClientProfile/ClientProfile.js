@@ -20,20 +20,23 @@ export const ClientProfile = () => {
   return (
     <div>
         <NavBar/>
-        <h1>Client Profile</h1>
-        <p>Welcome {currentUser.fullName}</p>
+        <h1 className={styles.welcomeMessage}>{currentUser.fullName}'s Dashboard</h1>
+        
         <div className={styles.cardHolder}>
          <MyCard
          title="My Profile"
          body="Edit and update your contact details"
+         linkTo="/"
          />
           <MyCard
          title="My Pets"  
          body="Add and update your pets"
+         linkTo="/aboutus"
          />
           <MyCard
          title="Appointments"
          body="View past and current appointments" 
+         linkTo="/"
          />
         </div>
     </div>
