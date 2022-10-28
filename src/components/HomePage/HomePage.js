@@ -55,10 +55,10 @@ export const HomePage = () => {
     function playVideo(e) {
         const vid = e.currentTarget
         vid.play();
-        vid.classList.remove('fading');
+         vid.classList.remove('fading');
         setTimeout(() => {
             vid.classList.add('fading');
-        }, (vid.duration / vid.playbackRate - 1) * 1000)
+         }, (vid.duration / vid.playbackRate - 1) * 1000)
     } 
     const linkStyle = {
         margin: "1rem",

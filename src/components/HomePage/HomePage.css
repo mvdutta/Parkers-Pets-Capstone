@@ -70,7 +70,7 @@
     font-size: 20px;
     color: whitesmoke;
     text-align: center;
-    border: 2px solid rgba(255, 59, 63);
+    border: 1px solid rgba(255, 59, 63, 0.8);
 }
 .login-holder {
     display: flex;
@@ -92,11 +92,13 @@
 }
 .login-button {
     margin-bottom: 10px;
+    margin-top: 10px;
     padding: 8px;
     font-size: 16px;
     border-radius: 7px;
-    border: 2px solid rgba(255, 59, 63);
+    border: 2px solid rgba(255, 59, 63, 0.8);
     width: 30%; 
+    cursor: pointer;
 }
 .login-text {
     margin-bottom: 10px;

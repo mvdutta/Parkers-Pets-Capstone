@@ -1,6 +1,4 @@
 
-
-
 .cardHolder {
     width: 70%;
     display: flex;
@@ -9,10 +7,33 @@
     margin-right: auto;
 }
 
-
 .welcomeMessage {
-    text-align: center;
-    margin-bottom: 8%;
+    margin-bottom: 7%;
     margin-top: 3%;
     color: rgb(49, 56, 56);
+    margin-left: 3%;
 }
+.custom-shape-divider-top-1666820762 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+} 
+
+.custom-shape-divider-top-1666820762 svg {
+    position: relative;
+    display: block;
+    width: calc(123% + 1.3px);
+    height: 269px;
+} 
+
+.custom-shape-divider-top-1666820762 .shape-fill {
+    fill: #bce7f1;
+} 
+.divider-wrapper {
+    position: relative;
+    margin-top: 12%;
+    background-color: #EFEFEF;
+} 

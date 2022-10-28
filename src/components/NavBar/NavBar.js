@@ -33,7 +33,7 @@ export const NavBar = () => {
   return (
     <div className={styles.navBar}>
         <ul >
-            <li>{loggedIn && <div className={styles.navWelcome}>Welcome {currentUser.fullName}!</div>}</li>
+            <li>{loggedIn && <div className={styles.navWelcome}>Welcome {currentUser.fullName}</div>}</li>
             <li><Link className={styles.navLink} to="/">Home</Link></li>
             <li><Link className={styles.navLink}to="/aboutus">About Us</Link></li>
             <li><Link className={styles.navLink} to="/">Our Team</Link></li>
