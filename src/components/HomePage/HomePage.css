@@ -65,9 +65,9 @@
 .login-container {
     background-color: rgba(17, 21, 20, 0.2);
     border-radius: 15%;
-    width: 20%;
-    padding: 2%;
-    font-size: 18px;
+    width: 23%;
+    padding: 5%;
+    font-size: 20px;
     color: whitesmoke;
     text-align: center;
     border: 2px solid rgba(255, 59, 63);
@@ -83,16 +83,19 @@
 }
 .email-input {
     margin-bottom: 10px;
-    width: 55%;
-    padding: 7px;
+    width: 70%;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .login-button {
     margin-bottom: 10px;
-    padding: 6px;
+    padding: 8px;
     font-size: 16px;
     border-radius: 7px;
-    border: 1px solid rgba(255, 59, 63);
-    width: 20%; 
+    border: 2px solid rgba(255, 59, 63);
+    width: 30%; 
 }
 .login-text {
     margin-bottom: 10px;
