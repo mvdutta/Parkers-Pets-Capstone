@@ -33,6 +33,9 @@ export const Register = (props) => {
                     localStorage.setItem("parker_user", JSON.stringify(createdUser))
                     setLoggedIn(true)       
                 }
+            }).then(()=>{
+                const whichProfile = user.role===0? "/employeeprofile":"/clientprofile"
+                navigate(whichProfile)
             })
     }
 
