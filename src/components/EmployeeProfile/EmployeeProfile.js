@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../App'
+import { MyCard } from '../MyCards/MyCard'
 import { NavBar } from '../NavBar/NavBar'
 import styles from './EmployeeProfile.module.css'
 
@@ -21,9 +22,33 @@ export const EmployeeProfile = () => {
   return (
     <div>
         <NavBar/>
-        <h1>Employee Profile</h1>
-        <p>Welcome {currentUser.fullName}</p>
+        <h1 className={styles.welcomeMessage}>{currentUser.fullName}'s Dashboard</h1>
+        
         <div className={styles.cardHolder}>
+        <MyCard
+         title="My Profile"
+         body="Review and update your contact details"
+         linkTo="/"
+         image="profile.png"
+         />
+         <MyCard
+         title="My Bio"
+         body="Create and update your bio and services" 
+         linkTo="/"
+         image="script.png"
+         />
+          <MyCard
+         title="My Clients"  
+         body="View and edit your client details"
+         linkTo="/aboutus"
+         image="pets.png"
+         />
+          <MyCard
+         title="Appointments"
+         body="View past and current appointments" 
+         linkTo="/"
+         image="appointment.png"
+         />  
         </div>
     </div>
   )

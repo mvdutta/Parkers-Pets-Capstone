@@ -5,7 +5,7 @@ import { NavBar } from '../NavBar/NavBar'
 import "./HomePage.css"
 
 export const HomePage = () => {
-    const [email, setEmail] = useState("jones@email.com")
+    const [email, setEmail] = useState("fish@email.com")
     const [currentUser, setCurrentUser] = useState({})
     const {loggedIn, setLoggedIn} = useContext(UserContext)
     const navigate = useNavigate()

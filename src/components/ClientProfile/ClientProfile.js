@@ -27,16 +27,19 @@ export const ClientProfile = () => {
          title="My Profile"
          body="Edit and update your contact details"
          linkTo="/"
+         image="profile.png"
          />
           <MyCard
          title="My Pets"  
-         body="Add and update your pets"
+         body="Add and update your pet's information"
          linkTo="/aboutus"
+         image="pets.png"
          />
           <MyCard
          title="Appointments"
          body="View past and current appointments" 
          linkTo="/"
+         image="appointment.png"
          />
         </div>
     </div>
