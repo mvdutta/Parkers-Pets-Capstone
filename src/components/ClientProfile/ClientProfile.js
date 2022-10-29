@@ -17,10 +17,13 @@ export const ClientProfile = () => {
       const localParkerUser = localStorage.getItem("parker_user")
       setCurrentUser(JSON.parse(localParkerUser))
   }, [])
+
+  const greeting = currentUser.fullName[currentUser.fullName.length-1] === 's' ? `${currentUser.fullName}' Dashboard`:`${currentUser.fullName}'s Dashboard`
+
   return (
     <div>
         <NavBar/>
-        <h1 className={styles.welcomeMessage}>{currentUser.fullName}'s Dashboard</h1>
+        <h1 className={styles.welcomeMessage}>{greeting}</h1>
         
         <div className={styles.cardHolder}>
          <MyCard

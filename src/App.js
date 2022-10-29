@@ -10,6 +10,7 @@ import { createContext, useEffect, useState } from 'react';
 import { ClientProfile } from './components/ClientProfile/ClientProfile';
 import { Denied, Page404 } from './components/Page404';
 import { Register } from './components/Register/Register';
+import { EmployeeProfileForm } from './components/EmployeeProfile/EmployeeProfileForm';
 //using contextAPI to create a global state accessible to all components in component tree
 export const UserContext = createContext({
   loggedIn: false,
@@ -43,6 +44,11 @@ export function App() {
               <Route path="/clientprofile" element={
               <Authorized>
                   <ClientProfile/>
+              </Authorized>
+              }/>
+               <Route path="/employeeprofileform" element={
+              <Authorized>
+                  <EmployeeProfileForm/>
               </Authorized>
               }/>
               

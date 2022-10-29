@@ -78,7 +78,7 @@ export const HomePage = () => {
         </div>
         <div className={loggedIn?`login-holder hidden`:`login-holder`}>
             <div className="login-container">
-            <h2 className='login-header'>Client Login</h2>
+            <h2 className='login-header'>Login</h2>
             <div>
             <input className="email-input" type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
             </div>

@@ -30,7 +30,7 @@ export const EmployeeProfile = () => {
         <MyCard
          title="My Profile"
          body="Review and update your contact details"
-         linkTo="/"
+         linkTo="/employeeprofileform"
          image="profile.png"
          />
          <MyCard
