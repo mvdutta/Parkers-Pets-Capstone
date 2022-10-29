@@ -51,7 +51,7 @@
 .homepage-header {
     text-align: center;
     margin-top: 50px;
-    color: #FF3B3F;
+    color: rgb(49, 56, 56);
     font-size: 1.8rem;
 }
 
@@ -65,12 +65,12 @@
 .login-container {
     background-color: rgba(17, 21, 20, 0.2);
     border-radius: 15%;
-    width: 20%;
-    padding: 2%;
-    font-size: 18px;
+    width: 23%;
+    padding: 5%;
+    font-size: 20px;
     color: whitesmoke;
     text-align: center;
-    border: 2px solid rgba(255, 59, 63);
+    border: 1px solid rgba(255, 59, 63, 0.8);
 }
 .login-holder {
     display: flex;
@@ -80,25 +80,29 @@
 }
 .login-header {
     margin-bottom: 10px;
+    color: whitesmoke;
 }
 .email-input {
     margin-bottom: 10px;
-    width: 55%;
-    padding: 7px;
+    width: 70%;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .login-button {
     margin-bottom: 10px;
-    padding: 6px;
+    margin-top: 10px;
+    padding: 8px;
     font-size: 16px;
     border-radius: 7px;
-    border: 1px solid rgba(255, 59, 63);
-    width: 20%; 
+    border: 2px solid rgba(255, 59, 63, 0.8);
+    width: 30%; 
+    cursor: pointer;
 }
 .login-text {
     margin-bottom: 10px;
-    font-weight: bold;
 }
-
 .hidden {
     visibility: hidden;
 }

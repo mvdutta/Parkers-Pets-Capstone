@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../App'
 import { NavBar } from '../NavBar/NavBar'
 import "./HomePage.css"
 
 export const HomePage = () => {
-    const [email, setEmail] = useState("jones@email.com")
+    const [email, setEmail] = useState("fish@email.com")
     const [currentUser, setCurrentUser] = useState({})
     const {loggedIn, setLoggedIn} = useContext(UserContext)
     const navigate = useNavigate()
@@ -31,33 +31,43 @@ export const HomePage = () => {
                     localStorage.setItem("parker_user", JSON.stringify(foundUser))
                     setCurrentUser(foundUser)
                     setLoggedIn(true)
-                    let whichProfile = ""
-                    if (foundUser.role===1){
-                        whichProfile = "/clientprofile"
-                    } else{
-                        whichProfile = "/employeeprofile"
-                    }
-                
-                    navigate(whichProfile)
+                    return foundUser
                 }
                 else {
                     window.alert("Invalid login")
                 }
+            }).then((foundUser)=>{
+                if (!foundUser){
+                    return navigate("/")
+                    
+                }
+                let whichProfile = ""
+                if (foundUser.role===1){
+                    whichProfile = "/clientprofile"
+                } else{
+                    whichProfile = "/employeeprofile"
+                }
+            
+                navigate(whichProfile)
             })
     }
 
     function playVideo(e) {
         const vid = e.currentTarget
         vid.play();
-        vid.classList.remove('fading');
+         vid.classList.remove('fading');
         setTimeout(() => {
             vid.classList.add('fading');
-        }, (vid.duration / vid.playbackRate - 1) * 1000)
+         }, (vid.duration / vid.playbackRate - 1) * 1000)
     } 
+    const linkStyle = {
+        margin: "1rem",
+        color: 'lightBlue',
+        fontWeight: 'bold'
+      };
   return (<>
     <div>
         <NavBar/>
-        {loggedIn && <div>Hello {currentUser.fullName}</div>}
         <video controls preload="true" autoPlay playsInline loop muted id='video' onCanPlay={(e)=>{playVideo(e)}} onEnded={(e)=>{playVideo(e)}}>
             <source src = 'https://player.vimeo.com/external/515948828.sd.mp4?s=14b4f5fa6010a439ad44da0954c4cbc694e00520&profile_id=164&oauth2_token_id=57447761' type='video/mp4'/>
         </video>   
@@ -68,13 +78,13 @@ export const HomePage = () => {
         </div>
         <div className={loggedIn?`login-holder hidden`:`login-holder`}>
             <div className="login-container">
-            <h2 className='login-header'>Client Login</h2>
+            <h2 className='login-header'>Login</h2>
             <div>
             <input className="email-input" type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
             </div>
             <button className="login-button" onClick={handleLogin}>login</button>
             <p className="login-text">Don't have an account yet?</p>
-            <p className="login-text">Register Here</p>
+            <p className="login-text"><Link to="/register" style={linkStyle}>Register Here</Link></p>
             </div>
         </div>
     </div>
