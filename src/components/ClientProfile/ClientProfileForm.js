@@ -1,10 +1,10 @@
-import styles from "./EmployeeProfileForm.module.css"
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { NavBar } from "../NavBar/NavBar"
+import styles from "../EmployeeProfile/EmployeeProfileForm.module.css"
 import { UserContext } from "../../App"
 
-export const EmployeeProfileForm = () => {
+export const ClientProfileForm = () => {
     const [user, setUser] = useState({
         email: "",
         fullName: "",
@@ -14,7 +14,6 @@ export const EmployeeProfileForm = () => {
         role: ""       
     })
     const {loggedIn, setLoggedIn} = useContext(UserContext)
-
 
     const [feedback, setFeedback] = useState("")
     useEffect(() => {
@@ -49,7 +48,7 @@ export const EmployeeProfileForm = () => {
             .then(res => res.json()) 
             .then(() => {
                 setFeedback("Employee profile successfully saved")
-                navigate("/employeeprofile")
+                navigate("/clientprofileform")
             })
             }
             const greeting = user.fullName[user.fullName.length-1] === 's' ? `${user.fullName}' Profile`:`${user.fullName}'s Profile`
@@ -129,9 +128,7 @@ export const EmployeeProfileForm = () => {
                 localStorage.clear()
                 navigate("/")
             })
-        }}
-    
-    
+        }} 
     >Delete Profile</button>
             </div>    
            

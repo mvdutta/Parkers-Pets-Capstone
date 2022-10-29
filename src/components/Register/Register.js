@@ -12,7 +12,7 @@ export const Register = (props) => {
         streetAddress: "",
         zipCode: "",
         phone: "",
-        role: ""
+        role: 1
         
     })
     const {setLoggedIn} = useContext(UserContext)

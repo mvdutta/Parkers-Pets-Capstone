@@ -134,3 +134,13 @@
   body {
     background-color: #EFEFEF;
   }
+  .deleteButton {
+    background-color: #bce7f1;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    padding: 2px;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 23%; 
+    cursor: pointer;
+  }
