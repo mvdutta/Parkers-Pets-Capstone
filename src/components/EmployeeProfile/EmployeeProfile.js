@@ -47,7 +47,7 @@ export const EmployeeProfile = () => {
         />
         <MyCard
           title="My Clients"
-          body="View and edit your client details"
+          body="View and edit your client's details"
           linkTo="/aboutus"
           image="clientLogo.png"
         />

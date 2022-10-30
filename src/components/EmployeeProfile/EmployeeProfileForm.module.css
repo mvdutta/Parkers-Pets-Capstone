@@ -12,7 +12,7 @@
         
 .form-style-5 fieldset{
 	border: none;
-    color:#686060;
+    color:#4d4747;
     font-family: 'Lato', sans-serif;
 }
 .form-style-5 legend {
@@ -37,7 +37,7 @@
 	background: rgba(255,255,255,.1);
 	border: none;
 	border-radius: 4px;
-	font-size: 15px;
+	font-size: 16px;
 	margin: 0;
 	outline: 0;
 	padding: 10px;
@@ -46,7 +46,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box; 
 	background-color: #e8eeef;
-	color:#1d1f20;
+	color:#3c3e3f;
 	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 30px;
@@ -94,7 +94,7 @@
 	text-align: center;
 	font-style: normal;
 	width: 32%;
-	border: 1px solid #FF3B3F;
+	border: 1px solid rgba(255, 59, 63, 0.8);
     border-radius: 8%;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
@@ -104,7 +104,7 @@
 .form-style-5 input[type="button"]:hover
 {
 	background:  #bce7f1;
-    color: black;
+    color: #353131;
 }
 
 .checkboxHolder {

@@ -48,8 +48,7 @@ export const EmployeeProfileForm = () => {
             })
             .then(res => res.json()) 
             .then(() => {
-                setFeedback("Employee profile successfully saved")
-                navigate("/employeeprofile")
+                setFeedback("Profile successfully saved")
             })
             }
             const greeting = user.fullName[user.fullName.length-1] === 's' ? `${user.fullName}' Profile`:`${user.fullName}'s Profile`
