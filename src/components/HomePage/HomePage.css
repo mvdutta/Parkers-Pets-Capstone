@@ -66,11 +66,11 @@
     background-color: rgba(17, 21, 20, 0.2);
     border-radius: 15%;
     width: 23%;
-    padding: 5%;
+    padding: 2%;
     font-size: 20px;
     color: whitesmoke;
     text-align: center;
-    border: 1px solid rgba(255, 59, 63, 0.8);
+    border: 1px solid  #bce7f1;
 }
 .login-holder {
     display: flex;

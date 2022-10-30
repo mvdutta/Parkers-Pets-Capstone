@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { MyCard } from "../MyCards/MyCard";
 import { NavBar } from "../NavBar/NavBar";
 import styles from "./ClientProfile.module.css";
@@ -12,11 +13,16 @@ export const ClientProfile = () => {
     phone: "",
     role: "",
   });
-
+  const navigate = useNavigate()
   useEffect(() => {
     const localParkerUser = localStorage.getItem("parker_user");
-    setCurrentUser(JSON.parse(localParkerUser));
+    const parkerUserObject = JSON.parse(localParkerUser)
+    if (parkerUserObject.role !== 1) {
+      navigate("/denied")
+    }
+    setCurrentUser(parkerUserObject);
   }, []);
+ 
 
   const greeting =
     currentUser.fullName[currentUser.fullName.length - 1] === "s"
