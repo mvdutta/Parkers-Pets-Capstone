@@ -68,7 +68,7 @@ export const HomePage = () => {
   return (<>
     <div>
         <NavBar/>
-        <video controls preload="true" autoPlay playsInline loop muted id='video' onCanPlay={(e)=>{playVideo(e)}} onEnded={(e)=>{playVideo(e)}}>
+        <video preload="true" autoPlay playsInline loop muted id='video' onCanPlay={(e)=>{playVideo(e)}} onEnded={(e)=>{playVideo(e)}}>
             <source src = 'https://player.vimeo.com/external/515948828.sd.mp4?s=14b4f5fa6010a439ad44da0954c4cbc694e00520&profile_id=164&oauth2_token_id=57447761' type='video/mp4'/>
         </video>   
         <div className='overlay'></div>
@@ -79,10 +79,12 @@ export const HomePage = () => {
         <div className={loggedIn?`login-holder hidden`:`login-holder`}>
             <div className="login-container">
             <h2 className='login-header'>Login</h2>
-            <div>
-            <input className="email-input" type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
-            </div>
-            <button className="login-button" onClick={handleLogin}>login</button>
+            <form onSubmit={handleLogin}>
+                <div>
+                    <input className="email-input" type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
+                </div>
+                <button className="login-button" type="submit">login</button>
+            </form>
             <p className="login-text">Don't have an account yet?</p>
             <p className="login-text"><Link to="/register" style={linkStyle}>Register Here</Link></p>
             </div>
