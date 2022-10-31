@@ -3,12 +3,14 @@ import { useNavigate, useParams } from "react-router-dom"
 import { NavBar } from "../NavBar/NavBar"
 import styles from "../EmployeeProfile/EmployeeProfileForm.module.css"
 import { UserContext } from "../../App"
+import { type } from "@testing-library/user-event/dist/type"
 
 export const PetForm = () => {
 
     const [pet, setPet] = useState({
         name: "",
         age: "",
+        ageUnits: "",
         color:"",
         breedSpecies: "",
         medications: false,
@@ -19,6 +21,7 @@ export const PetForm = () => {
         clientId: "",
         petTypeId:""
     })
+    const [petTypes, setPetTypes] = useState([])
     const {petId} = useParams()
     let navigate = useNavigate()
 
@@ -31,72 +34,121 @@ export const PetForm = () => {
         petCopy.id = petId
         }
         setPet(petCopy)
-        console.log(petId)
     }, [])
+
+    useEffect(()=>{
+        fetch(`http://localhost:8088/petTypes`)
+        .then(res => res.json())
+        .then((data) => {
+         setPetTypes(data)
+        })
+    }, [])
+
+    const petOptions =   petTypes.map((petType) => {
+        return  <option key={petType.petTypeId} value={petType.petTypeId}>{petType.type}</option>
+    })
+
 
 return (<>
 
     <NavBar/>  
-    <h1>Pet Form</h1>
-            {/* <h1 className={styles.formHeader}>Your Pet's Profile</h1>
+            <h1 className={styles.formHeader}>Your Pet's Profile</h1>
             <div className={styles["form-style-5"]}>
             <form>
             <fieldset>
-            <legend><span className={styles["number"]}>1</span> Full Name & Email</legend>
-            <input type="text" id="fullName" name="field1" placeholder="Full Name *" required value={user.fullName}
+            <legend><span className={styles["number"]}>1</span> Your Pet's Info</legend>
+            <input type="text" id="name" name="field1" placeholder="Name *" required value={pet.name}
                 onChange={
                     (evt) => {
-                        const copy = {...user}
-                        copy.fullName = evt.target.value
-                        setUser(copy)
+                        const copy = {...pet}
+                        copy.name = evt.target.value
+                        setPet(copy)
+                    }
+                }   
+            />
+            <input type="number" id="age" name="field1" placeholder="Age *" required value={pet.age}
+                onChange={
+                    (evt) => {
+                        const copy = {...pet}
+                        copy.age = evt.target.value
+                        setPet(copy)
                     }
                 }   
             />
 
-            <input type="email" id="email" name="field2" placeholder="Email *" required value={user.email}
+            <input type="text" id="color" name="field3" placeholder="Color(s) *" required value={pet.color}
                 onChange={
                     (evt) => {
-                        const copy = {...user}
-                        copy.email = evt.target.value
-                        setUser(copy)
+                        const copy = {...pet}
+                        copy.color = evt.target.value
+                        setPet(copy)
                     }
                 }
             />    
+            <select id="petType" name="field4"
+            onChange={(evt)=>{
+                        const copy = {...pet}
+                        copy.petTypeId = evt.target.value
+                        setPet(copy)
+                    }}>
+           {petOptions}
+            </select>
+            <input type="text" id="breedSpecies" name="field5" placeholder="breed/species or description *" required value={pet.breedSpecies}
+                onChange={
+                    (evt) => {
+                        const copy = {...pet}
+                        copy.breedSpecies = evt.target.value
+                        setPet(copy)
+                    }
+                }
+            />   
+            <input type="text" id="image" name="field6" placeholder="image url *" required value={pet.image}
+                onChange={
+                    (evt) => {
+                        const copy = {...pet}
+                        copy.image = evt.target.value
+                        setPet(copy)
+                    }
+                }
+            />                 
             </fieldset>
             <fieldset>
-            <legend><span className={styles["number"]}>2</span>Street Address, Zip Code & Phone</legend>
-            <input type="text" id="streetAddress" name="field3" placeholder="Street Address *" required value={user.streetAddress}
+            <legend><span className={styles["number"]}>2</span>Your Pet's Care</legend>
+            <textarea id="vetInfo" name="field7" placeholder="Vet Info *" required value={pet.vetInfo}
                 onChange={
                     (evt) => {
-                        const copy = {...user}
-                        copy.streetAddress = evt.target.value
-                        setUser(copy)
+                        const copy = {...pet}
+                        copy.vetInfo = evt.target.value
+                        setPet(copy)
                     }
-                }
-            />
+                }>
+            </textarea>
 
-            <input type="text" id="zipCode" name="field4" placeholder="Zip Code *" required value={user.zipCode}
+            <textarea id="instructions" name="field8" placeholder="Care Notes/Instructions *" value={pet.instructions}
                 onChange={
                     (evt) => {
-                        const copy = {...user}
-                        copy.streetAddress = evt.target.value
-                        setUser(copy)
+                        const copy = {...pet}
+                        console.log(evt.target.value)
+                        copy.instructions = evt.target.value
+                        setPet(copy)
                     }
-                }
-            />   
-
-            <input type="text" id="phone" name="field5" placeholder="Phone Number (xxx-xxx-xxxx) *" required value={user.phone}
-                onChange={
-                    (evt) => {
-                        const copy = {...user}
-                        copy.phone = evt.target.value
-                        setUser(copy)
-                    }
-                }
-            />   
+                }>
+            </textarea>
+            <div>
+            <label htmlFor="checkbox" className={styles["register-text"]}>My pet needs medication</label> 
+            <input className={styles.checkbox} onChange={(evt) => {
+                        const copy = {...pet}
+                        copy.medications = evt.target.checked?1:0
+                        setPet(copy)
+                    }}
+                        type="checkbox" id="medications" />
+            </div> 
             </fieldset>
-            <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
+          
+            <input type="submit" value="Save Changes"  />
             </form>
+
+{/* 
             <button className={styles.deleteButton} 
         onClick={()=> {
             const confirmed = window.confirm("Are you sure you want to delete your profile?")
@@ -110,10 +162,10 @@ return (<>
                 navigate("/")
             })
         }} 
-    >Delete Profile</button>
-            </div>     */}
+    >Delete Profile</button>  */}
+            </div>     
         
-
+ 
 
 
 </>
