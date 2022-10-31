@@ -12,6 +12,8 @@ const deletePet = () =>{
     if(!confirmed) return
     fetch(`http://localhost:8088/pets/${id}`, {
         method: "DELETE"
+    }).then(()=>{
+        navigate(0)//refreshes the page
     })
 }
   return (<>
