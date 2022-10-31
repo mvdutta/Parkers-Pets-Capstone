@@ -13,6 +13,7 @@ import { Register } from './components/Register/Register';
 import { EmployeeProfileForm } from './components/EmployeeProfile/EmployeeProfileForm';
 import { ClientProfileForm } from './components/ClientProfile/ClientProfileForm';
 import { PetList } from './components/Pets/PetList';
+import { PetForm } from './components/Pets/PetForm';
 //using contextAPI to create a global state accessible to all components in component tree
 export const UserContext = createContext({
   loggedIn: false,
@@ -61,6 +62,16 @@ export function App() {
                <Route path="/petList" element={
               <Authorized>
                   <PetList/>
+              </Authorized>
+              }/>
+               <Route path="/petform" element={
+              <Authorized>
+                  <PetForm/>
+              </Authorized>
+              }/>
+              <Route path="/petform/:petId" element={
+              <Authorized>
+                  <PetForm/>
               </Authorized>
               }/>
               

@@ -38,6 +38,8 @@ export const PetList = () => {
 
     const petNamelist = makeNameString(pets.map(pet=>pet.pet.name))
     const petCards = pets.map(pet => <PetCard
+        key={pet.pet.id}
+        id={pet.pet.id}
         name={pet.pet.name} 
         breed={pet.pet.breedSpecies}
         age={pet.pet.age}
