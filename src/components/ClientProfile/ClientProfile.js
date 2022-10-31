@@ -44,7 +44,7 @@ export const ClientProfile = () => {
         <MyCard
           title="My Pets"
           body="Add, view, and update your pet's information"
-          linkTo="/aboutus"
+          linkTo="/petList"
           image="pets.png"
         />
         <MyCard

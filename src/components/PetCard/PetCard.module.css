@@ -1,0 +1,30 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(28, 21, 21, 0.4);
+    transition: 0.3s;
+    width: 20%;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background-color: rgba(188, 231, 241, 0.3);
+  }
+
+  .container {
+    padding: 10px 25px;
+  }
+  .cardImage {
+    width: 100%;
+    /* margin-left: 90px; */
+    /* margin-top: 20px; */
+    padding: 5px;
+    
+  }
+  .cardTitle{
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .cardBody {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
