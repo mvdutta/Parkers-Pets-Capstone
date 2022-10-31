@@ -13,7 +13,7 @@ const getPetDetails = () => {
           <div className={styles.container}>
         <h4 className={styles.cardTitle}>{name}</h4>
         <p className={styles.cardBody}>{breed}</p> 
-        <p className={styles.cardText}>{age} old</p> 
+        <p className={styles.cardText}>{age} years old</p> 
         <button className={styles.detailButton} onClick={getPetDetails}>Details</button>
           </div>
         </div>

@@ -12,7 +12,7 @@ export const PetForm = () => {
         age: "",
         color:"",
         breedSpecies: "",
-        medications: false,
+        medications: 0,
         sex: "",
         instructions: "",
         vetInfo:"",
@@ -56,7 +56,7 @@ export const PetForm = () => {
         return  <option 
         key={petType.petTypeId} 
         value={petType.petTypeId}
-        selected = {petType.petTypeId===pet.petTypeId}
+        // selected = {petType.petTypeId===pet.petTypeId}
         >
             {petType.type}
         </option>
@@ -71,15 +71,38 @@ const handleSaveButtonClick = (clickEvent) => {
             },
             body: JSON.stringify(pet)
         })
-        .then(res => res.json())  
+        .then(res => res.json())
+        .then(()=>{
+            window.alert(`${pet.name}'s data has been saved!`)
+        }) 
     } else {
-        window.alert("this will be a post request")
+        fetch(`http://localhost:8088/pets`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(pet)
+        })
+        .then(res => res.json())
+        .then((data)=>{
+            fetch(`http://localhost:8088/clientPet`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    clientId: pet.clientId,
+                    petId: data.id
+                })
+            })
+            .then(res => res.json())
+            .then(navigate("/petlist"))
+        }) 
     }
 }
 
 return (<>
-
-    <NavBar/>  
+<NavBar/>
             <h1 className={styles.formHeader}>Your Pet's Profile</h1>
             <div className={styles["form-style-5"]}>
             <form onSubmit= {(clickEvent) => handleSaveButtonClick(clickEvent)} >
@@ -113,10 +136,10 @@ return (<>
                     }
                 }
             />    
-            <select id="petType" name="field4"
+            <select id="petType" name="field4" value={pet.petTypeId}
             onChange={(evt)=>{
                         const copy = {...pet}
-                        copy.petTypeId = +evt.target.value
+                        copy.petTypeId = evt.target.value
                         setPet(copy)
                     }}>
            {petOptions}
@@ -156,7 +179,6 @@ return (<>
                 onChange={
                     (evt) => {
                         const copy = {...pet}
-                        console.log(evt.target.value)
                         copy.instructions = evt.target.value
                         setPet(copy)
                     }
@@ -169,33 +191,18 @@ return (<>
                         copy.medications = evt.target.checked?1:0
                         setPet(copy)
                     }}
-                        type="checkbox" id="medications" />
+                        type="checkbox" 
+                        id="medications" 
+                        checked= {pet.medications===1?true:false}
+                        />
             </div> 
             </fieldset>
           
             <input type="submit" value="Save Changes"  />
             </form>
 
-{/* 
-            <button className={styles.deleteButton} 
-        onClick={()=> {
-            const confirmed = window.confirm("Are you sure you want to delete your profile?")
-            if(!confirmed) return
-            fetch(`http://localhost:8088/users/${parkerUserObject.id}`, {
-                method: "DELETE"
-            })
-            .then(() => {
-                setLoggedIn(false)
-                localStorage.clear()
-                navigate("/")
-            })
-        }} 
-    >Delete Profile</button>  */}
             </div>     
-        
- 
-
-
+    
 </>
 )
 

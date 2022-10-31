@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { NavBar } from "../NavBar/NavBar"
 import { PetCard } from "../PetCard/PetCard"
 import styles from "./pets.module.css"
@@ -49,7 +50,11 @@ export const PetList = () => {
 
     return (<>
     <NavBar/>
-    <h1 className={styles.welcomeMessage}>Your Pet(s): <span className={styles.petName}>{petNamelist}</span></h1>
+    <div>
+        <h1 className={styles.welcomeMessage}>Your Pet(s): <span className={styles.petName}>{petNamelist}</span>  <Link to="/petform"> Add Pet</Link></h1>
+       
+    </div>
+    
     <div className={styles.petCardHolder}>{petCards}
     </div>
     </>
