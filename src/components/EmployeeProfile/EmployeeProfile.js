@@ -1,6 +1,5 @@
-import { red } from "@mui/material/colors";
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../App";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { MyCard } from "../MyCards/MyCard";
 import { NavBar } from "../NavBar/NavBar";
 import styles from "./EmployeeProfile.module.css";
@@ -14,10 +13,14 @@ export const EmployeeProfile = () => {
     phone: "",
     role: "",
   });
-
+  const navigate = useNavigate()
   useEffect(() => {
     const localParkerUser = localStorage.getItem("parker_user");
-    setCurrentUser(JSON.parse(localParkerUser));
+    const parkerUserObject = JSON.parse(localParkerUser)
+    if (parkerUserObject.role !== 0) {
+      navigate("/denied")
+    }
+    setCurrentUser(parkerUserObject);
   }, []);
 
   const greeting =
@@ -44,7 +47,7 @@ export const EmployeeProfile = () => {
         />
         <MyCard
           title="My Clients"
-          body="View and edit your client details"
+          body="View and edit your client's details"
           linkTo="/aboutus"
           image="clientLogo.png"
         />

@@ -1,3 +1,4 @@
+import { waitForElementToBeRemoved } from '@testing-library/react'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from "./MyCard.module.css"
@@ -19,3 +20,5 @@ export const MyCard = ({title, body, linkTo, image, bio}) => {
 
   )
 }
+
+

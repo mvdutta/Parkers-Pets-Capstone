@@ -5,8 +5,9 @@ import { UserContext } from '../../App'
 
 export const Authorized = ({children}) => {
    const {loggedIn} = useContext(UserContext)
+   const localParkerUser = localStorage.getItem("parker_user")
    
-   if(loggedIn){
+   if(loggedIn || localParkerUser){
       return children
    } else {
       return <Navigate to={"/denied"} replace />

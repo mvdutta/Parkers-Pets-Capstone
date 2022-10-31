@@ -47,8 +47,7 @@ export const ClientProfileForm = () => {
             })
             .then(res => res.json()) 
             .then(() => {
-                setFeedback("Employee profile successfully saved")
-                navigate("/clientprofileform")
+                setFeedback("Profile successfully saved")
             })
             }
             const greeting = user.fullName[user.fullName.length-1] === 's' ? `${user.fullName}' Profile`:`${user.fullName}'s Profile`
@@ -104,7 +103,7 @@ export const ClientProfileForm = () => {
                 }
             />   
 
-            <input type="text" id="phone" name="field5" placeholder="Phone Number *" required value={user.phone}
+            <input type="text" id="phone" name="field5" placeholder="Phone Number (xxx-xxx-xxxx) *" required value={user.phone}
                 onChange={
                     (evt) => {
                         const copy = {...user}

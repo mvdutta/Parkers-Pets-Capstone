@@ -74,7 +74,7 @@ export const Register = (props) => {
         <fieldset>
         <legend><span className={styles["number"]}>2</span>Street Address, Zip Code & Phone</legend>
         <input onChange={updateUser} type="text" id="streetAddress" name="field3" placeholder="Street Address *" required />
-        <input onChange={updateUser} type="text" id="zipCode" name="field4" placeholder="Zip Code *" required/>   
+        <input onChange={updateUser} type="number" id="zipCode" name="field4" placeholder="Zip Code *" required/>   
         <input onChange={updateUser} type="text" id="phone" name="field5" placeholder="Phone Number *" required/>   
         </fieldset>
         <div className={styles.checkboxHolder}>

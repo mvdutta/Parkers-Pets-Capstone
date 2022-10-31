@@ -1,6 +1,6 @@
 
 .form-style-5{
-	max-width: 500px;
+	max-width: 600px;
 	padding: 10px 20px;
 	background: #f4f7f8;
 	margin: 10px auto;
@@ -65,7 +65,7 @@
 }
 .form-style-5 select{
 	-webkit-appearance: menulist-button;
-	height:35px;
+	height:45px;
 }
 .form-style-5 .number {
 	background: #FF3B3F;
@@ -118,7 +118,7 @@
     
 }
 .checkbox {
-    margin-bottom: 7px;
+    margin-bottom: 40px;
 }
 ::placeholder {
     color: #586165;

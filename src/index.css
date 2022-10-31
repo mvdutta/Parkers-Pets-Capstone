@@ -10,9 +10,42 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+.feedback {
+  border: 1px solid rgba(255, 59, 63, 0.8);
+  padding: 1rem;
+  background-color: #bce7f1;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  animation: 1s slideDown;
 }
 
-button {
-  
-} */
+.invisible {
+  display: none;
+  width: 20%;
+}
+
+.visible {
+  display: block;
+  width: 20%;
+}
+
+.error {
+  border: 1px dotted rgb(107, 21, 4);
+  padding: 1rem;
+  background-color: rgb(255, 229, 228);
+}
+
+@keyframes slideDown {
+  0% {
+    top: 0%;
+  }
+
+  100% {
+    top: 20%;
+  }
+}
 
