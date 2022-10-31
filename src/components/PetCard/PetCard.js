@@ -8,7 +8,7 @@ const getPetDetails = () => {
     navigate(`/petform/${id}`)
 }
 const deletePet = () =>{
-    const confirmed = window.confirm("Are you sure you want to delete this pet?"+id)
+    const confirmed = window.confirm("Are you sure you want to delete this pet?")
     if(!confirmed) return
     fetch(`http://localhost:8088/pets/${id}`, {
         method: "DELETE"
@@ -22,7 +22,7 @@ const deletePet = () =>{
           <div className={styles.container}>
         <h4 className={styles.cardTitle}>{name}</h4>
         <p className={styles.cardBody}>{breed}</p> 
-        <p className={styles.cardText}>{age} years old</p> 
+        <p className={styles.cardText}>Age: {age}</p> 
         <button className={styles.detailButton} onClick={getPetDetails}>Details</button>
         <button className={styles.detailButton} onClick={deletePet}>Delete</button>
           </div>

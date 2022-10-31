@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import styles from "../EmployeeProfile/EmployeeProfileForm.module.css";
 import { UserContext } from "../../App";
 import { type } from "@testing-library/user-event/dist/type";
+import styles from "./PetForm.module.css"
 
 export const PetForm = () => {
   const [pet, setPet] = useState({
@@ -138,6 +138,7 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             />
+            <label for="petType">Type of Pet</label>
             <select
               id="petType"
               name="field4"
@@ -205,7 +206,7 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             ></textarea>
-            <div>
+            <div className={styles.checkboxHolder}>
               <label htmlFor="checkbox" className={styles["register-text"]}>
                 My pet needs medication
               </label>
