@@ -10,7 +10,6 @@ export const PetForm = () => {
     const [pet, setPet] = useState({
         name: "",
         age: "",
-        ageUnits: "",
         color:"",
         breedSpecies: "",
         medications: false,
@@ -30,9 +29,6 @@ export const PetForm = () => {
         const parkerUserObject = JSON.parse(localParkerUser)
         const petCopy = {...pet}
         petCopy.clientId = parkerUserObject.id
-        if (petId) {
-        petCopy.id = petId
-        }
         setPet(petCopy)
     }, [])
 
@@ -40,21 +36,53 @@ export const PetForm = () => {
         fetch(`http://localhost:8088/petTypes`)
         .then(res => res.json())
         .then((data) => {
-         setPetTypes(data)
+            setPetTypes(data)
         })
     }, [])
 
-    const petOptions =   petTypes.map((petType) => {
-        return  <option key={petType.petTypeId} value={petType.petTypeId}>{petType.type}</option>
-    })
+    useEffect(() => {
+        if (petId) {
+            fetch(`http://localhost:8088/pets/${petId}`)
+            .then(res => res.json())
+            .then((data) => {
+                const petCopy = {...pet,...data}
+                setPet(petCopy)
+            })   
+        }
 
+    }, [])
+
+    const petOptions =   petTypes.map((petType) => {
+        return  <option 
+        key={petType.petTypeId} 
+        value={petType.petTypeId}
+        selected = {petType.petTypeId===pet.petTypeId}
+        >
+            {petType.type}
+        </option>
+    })
+const handleSaveButtonClick = (clickEvent) => {
+    clickEvent.preventDefault()
+    if(pet.id) {
+        return fetch(`http://localhost:8088/pets/${pet.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(pet)
+        })
+        .then(res => res.json())  
+    } else {
+        window.alert("this will be a post request")
+    }
+}
 
 return (<>
 
     <NavBar/>  
             <h1 className={styles.formHeader}>Your Pet's Profile</h1>
             <div className={styles["form-style-5"]}>
-            <form>
+            <form onSubmit= {(clickEvent) => handleSaveButtonClick(clickEvent)} >
             <fieldset>
             <legend><span className={styles["number"]}>1</span> Your Pet's Info</legend>
             <input type="text" id="name" name="field1" placeholder="Name *" required value={pet.name}
@@ -88,7 +116,7 @@ return (<>
             <select id="petType" name="field4"
             onChange={(evt)=>{
                         const copy = {...pet}
-                        copy.petTypeId = evt.target.value
+                        copy.petTypeId = +evt.target.value
                         setPet(copy)
                     }}>
            {petOptions}
