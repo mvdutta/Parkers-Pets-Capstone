@@ -9,7 +9,8 @@ export const PetCard = ({name, age, breed, linkTo, image}) => {
           <div className={styles.container}>
         <h4 className={styles.cardTitle}>{name}</h4>
         <p className={styles.cardBody}>{breed}</p> 
-        <p className={styles.cardBody}>{age} old</p> 
+        <p className={styles.cardText}>{age} old</p> 
+        <button className={styles.detailButton}>Details</button>
           </div>
         </div>
   </>)

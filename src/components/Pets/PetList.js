@@ -22,15 +22,15 @@ export const PetList = () => {
     const makeNameString = (names) =>{
         let namestring = ""
         if (names.length===1) {
-            namestring = "Your pet: " +names[0]
+            namestring = names[0]
         }
         if (names.length ===2){
-            namestring = "Your pets: "+names.join(" and ")
+            namestring = names.join(" and ")
         }
         if (names.length >2){
             const last = names[names.length-1]
             const allButLast = names.slice(0, names.length-1)
-            namestring="Your pets: " +allButLast.join(", ")+" and "+last
+            namestring= allButLast.join(", ")+" and "+last
     
         }
         return namestring
@@ -47,7 +47,7 @@ export const PetList = () => {
 
     return (<>
     <NavBar/>
-    <h1 className={styles.welcomeMessage}>{petNamelist}</h1>
+    <h1 className={styles.welcomeMessage}>Your Pet(s): <span className={styles.petName}>{petNamelist}</span></h1>
     <div className={styles.petCardHolder}>{petCards}
     </div>
     </>

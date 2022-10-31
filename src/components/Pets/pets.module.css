@@ -1,4 +1,4 @@
-.cardHolder {
+.petCardHolder {
     width: 70%;
     display: flex;
     justify-content: space-evenly;
@@ -42,4 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+  }
+  .petName {
+    font-weight: 300;
   }
