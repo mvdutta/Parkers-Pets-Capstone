@@ -84,20 +84,7 @@ const handleSaveButtonClick = (clickEvent) => {
             body: JSON.stringify(pet)
         })
         .then(res => res.json())
-        .then((data)=>{
-            fetch(`http://localhost:8088/clientPet`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    clientId: pet.clientId,
-                    petId: data.id
-                })
-            })
-            .then(res => res.json())
-            .then(navigate("/petlist"))
-        }) 
+        .then(navigate("/petlist"))
     }
 }
 

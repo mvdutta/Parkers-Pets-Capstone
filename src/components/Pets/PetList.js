@@ -12,7 +12,7 @@ export const PetList = () => {
 
     useEffect(
         () => {
-            fetch (`http://localhost:8088/clientPet?_expand=pet&clientId=${parkerUserObject.id}`)
+            fetch (`http://localhost:8088/pets?clientId=${parkerUserObject.id}`)
                 .then(res => res.json())
                 .then((data) => {
                     setPets(data)
@@ -37,21 +37,21 @@ export const PetList = () => {
         return namestring
     }
 
-    const petNamelist = makeNameString(pets.map(pet=>pet.pet.name))
+    const petNamelist = makeNameString(pets.map(pet=>pet.name))
     const petCards = pets.map(pet => <PetCard
-        key={pet.pet.id}
-        id={pet.pet.id}
-        name={pet.pet.name} 
-        breed={pet.pet.breedSpecies}
-        age={pet.pet.age}
+        key={pet.id}
+        id={pet.id}
+        name={pet.name} 
+        breed={pet.breedSpecies}
+        age={pet.age}
         linkTo="/clientprofileform"
-        image={pet.pet.image}
+        image={pet.image}
       />)
 
     return (<>
     <NavBar/>
     <div>
-        <h1 className={styles.welcomeMessage}>Your Pet(s): <span className={styles.petName}>{petNamelist}</span>  <Link to="/petform"> Add Pet</Link></h1>
+        <div className={styles.welcomeMessage}>Your Pet(s): <span className={styles.petName}>{petNamelist}</span> <br/> <Link to="/petform"> Add Pet</Link></div>
        
     </div>
     
