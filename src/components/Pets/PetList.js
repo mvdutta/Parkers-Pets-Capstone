@@ -52,8 +52,9 @@ export const PetList = () => {
       <NavBar />
       <div>
         <div className={styles.welcomeMessage}>
-          Your Pet(s): <span className={styles.petName}>{petNamelist}</span>{" "}
-          <br /> <Link to="/petform"> Add Pet</Link>
+          Your Pet(s): <span className={styles.petName}>{petNamelist}</span>
+          <div className={styles.addPetLink}>
+            <Link  to="/petform"> Add New Pet</Link></div>
         </div>
       </div>
 
