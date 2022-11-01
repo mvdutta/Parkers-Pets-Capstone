@@ -5,7 +5,7 @@ import { NavBar } from '../NavBar/NavBar'
 import "./HomePage.css"
 
 export const HomePage = () => {
-    const [email, setEmail] = useState("fish@email.com")
+    const [email, setEmail] = useState("")
     const [currentUser, setCurrentUser] = useState({})
     const {loggedIn, setLoggedIn} = useContext(UserContext)
     const navigate = useNavigate()
@@ -80,7 +80,7 @@ export const HomePage = () => {
             <h2 className='login-header'>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
-                    <input className="email-input" type="email" value={email} onChange={evt => setEmail(evt.target.value)}></input>
+                    <input className="email-input" type="email" value={email} placeholder="enter your email"onChange={evt => setEmail(evt.target.value)}></input>
                 </div>
                 <button className="login-button" type="submit">login</button>
             </form>
