@@ -68,14 +68,19 @@ export const Register = (props) => {
         <form onSubmit={handleRegister}>
         <fieldset>
         <legend><span className={styles["number"]}>1</span> Full Name & Email</legend>
-        <input onChange={updateUser} type="text" id="fullName" name="field1" placeholder="Full Name *" required autofocus/>
-        <input onChange={updateUser} type="email" id="email" name="field2" placeholder="Email *" required/>    
+        <label htmlFor="fullName">Full Name</label>
+        <input onChange={updateUser} type="text" id="fullName" name="field1" required autofocus/>
+        <label htmlFor="email">Email</label>
+        <input onChange={updateUser} type="email" id="email" name="field2" required/>    
         </fieldset>
         <fieldset>
         <legend><span className={styles["number"]}>2</span>Street Address, Zip Code & Phone</legend>
-        <input onChange={updateUser} type="text" id="streetAddress" name="field3" placeholder="Street Address *" required />
-        <input onChange={updateUser} type="number" id="zipCode" name="field4" placeholder="Zip Code *" required/>   
-        <input onChange={updateUser} type="text" id="phone" name="field5" placeholder="Phone Number *" required/>   
+        <label htmlFor="streetAddress">Street Address</label>
+        <input onChange={updateUser} type="text" id="streetAddress" name="field3" required />
+        <label htmlFor="zipCode">Zip Code</label>
+        <input onChange={updateUser} type="number" id="zipCode" name="field4" required/>   
+        <label htmlFor="phone">Phone Number</label>
+        <input onChange={updateUser} type="text" id="phone" name="field5"  required/>   
         </fieldset>
         <div className={styles.checkboxHolder}>
         <label htmlFor="checkbox" className={styles["register-text"]}> I am an employee </label>

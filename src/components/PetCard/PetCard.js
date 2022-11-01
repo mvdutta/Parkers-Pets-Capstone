@@ -24,7 +24,7 @@ const deletePet = () =>{
         <p className={styles.cardBody}>{breed}</p> 
         <p className={styles.cardText}>Age: {age}</p> 
         <button className={styles.detailButton} onClick={getPetDetails}>Details</button>
-        <button className={styles.detailButton} onClick={deletePet}>Delete</button>
+        <button className={styles.deleteButton} onClick={deletePet}>Delete</button>
           </div>
         </div>
   </>)
