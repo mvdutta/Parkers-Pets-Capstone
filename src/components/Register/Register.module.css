@@ -1,3 +1,6 @@
+.registerBody{
+	background-color: #f6f5e8;
+}
 
 .form-style-5{
 	max-width: 500px;
@@ -18,7 +21,7 @@
 .form-style-5 legend {
 	font-size: 1.3em;
 	margin-bottom: 30px;
-	color:rgb(49, 56, 56)
+	color: rgb(78, 91, 91);
 }
 .form-style-5 label {
 	display: block;
@@ -46,7 +49,7 @@
 	box-sizing: border-box; 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box; 
-	background-color: #e0eaec;
+	background-color: #eeedea;
 	color:#1d1f20;
 	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
@@ -62,14 +65,14 @@
 .form-style-5 input[type="url"]:focus,
 .form-style-5 textarea:focus,
 .form-style-5 select:focus{
-	background: #d2d9dd;
+	background: #e5e7e5;
 }
 .form-style-5 select{
 	-webkit-appearance: menulist-button;
 	height:35px;
 }
 .form-style-5 .number {
-	background: #ef5341;
+	background: #ec4e4e;
 	color: #fff;
 	height: 30px;
 	width: 30px;
@@ -90,21 +93,21 @@
 	padding: 10px 15px 10px 15px;
 	color: #FFF;
 	margin: 0 auto;
-	background:  #ef5341;
+	background: #ec4e4e;
 	font-size: 18px;
 	text-align: center;
 	font-style: normal;
 	width: 20%;
-	border: 1px solid  #ef5341;
-    border-radius: 8%;
-	border-width: 1px 1px 3px;
-	margin-bottom: 10px;
+    border-radius: 7px;
+	border: none;
+	margin-bottom: 100px;
     cursor: pointer;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
 }
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
 {
-	background:  #baccb7;
+	background: salmon;
     color: black;
 }
 
@@ -130,6 +133,7 @@
     text-align: center;
     margin-bottom: 3%;
     margin-top: 3%;
-    color: rgb(49, 56, 56);
+    color: rgb(66, 83, 83);
+	font-weight: 600;
   }
 

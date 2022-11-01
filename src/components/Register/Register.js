@@ -61,7 +61,7 @@ export const Register = (props) => {
         setUser(copy)
     }
 
-    return (<>
+    return (<div className={styles.registerBody}>
         <NavBar/>   
         <h1 className={styles.formHeader}>Please Register for Parker's Pet Sitting</h1>
         <div className={styles["form-style-5"]}>
@@ -74,7 +74,7 @@ export const Register = (props) => {
         <input onChange={updateUser} type="email" id="email" name="field2" required/>    
         </fieldset>
         <fieldset>
-        <legend><span className={styles["number"]}>2</span>Street Address, Zip Code & Phone</legend>
+        <legend><span className={styles["number"]}>2</span> Street Address, Zip Code & Phone</legend>
         <label htmlFor="streetAddress">Street Address</label>
         <input onChange={updateUser} type="text" id="streetAddress" name="field3" required />
         <label htmlFor="zipCode">Zip Code</label>
@@ -97,7 +97,7 @@ export const Register = (props) => {
         </form>
         </div>
        
-    </>
+    </div>
 
     )
 }

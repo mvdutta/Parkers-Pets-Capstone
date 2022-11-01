@@ -25,9 +25,8 @@
 .divider-wrapper {
     position: relative;
     margin-top: 690px;
-    background-color:  #fff7f5;
-    height: 700px;
-    
+    background-color: #f6f5e8;
+    height: 700px;   
 }
 .custom-shape-divider-top-1666820762 {
     position: absolute;
@@ -46,16 +45,16 @@
 }
 
 .custom-shape-divider-top-1666820762 .shape-fill {
-    fill: #baccb7;
+    fill: #c9d2c8;
 }
 .homepage-header {
     text-align: center;
-    margin-top: 50px;
     color: rgb(243, 248, 248);
     font-size: 1.8rem;
 }
 .header {
     color: rgb(243, 248, 248);
+    margin-bottom: 10px;
 }
 
 .transition {

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #baccb7;
+    background-color: #c9d2c8;
     height: 7vh;
 }
 
@@ -24,7 +24,7 @@
 .navWelcome {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
-    color: rgb(232, 99, 85);
+    color: #ec4e4e;
 
 }
 img {
