@@ -62,18 +62,17 @@ export const HomePage = () => {
     } 
     const linkStyle = {
         margin: "1rem",
-        color: 'lightBlue',
-        fontWeight: 'bold'
+        color: 'white',
       };
   return (<>
     <div>
         <NavBar/>
         <video preload="true" autoPlay playsInline loop muted id='video' onCanPlay={(e)=>{playVideo(e)}} onEnded={(e)=>{playVideo(e)}}>
-            <source src = 'https://player.vimeo.com/external/515948828.sd.mp4?s=14b4f5fa6010a439ad44da0954c4cbc694e00520&profile_id=164&oauth2_token_id=57447761' type='video/mp4'/>
+            <source src = 'cat-video2.mp4' type='video/mp4'/>
         </video>   
         <div className='overlay'></div>
         <div className='homepage-header'>
-        <h1>Parker's Pet Sitting</h1>
+        <h1 className='header'>Parker's Pet Sitting</h1>
         <p>Customizable and Trustworthy Care for Your Pet</p>
         </div>
         <div className={loggedIn?`login-holder hidden`:`login-holder`}>

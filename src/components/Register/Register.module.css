@@ -5,7 +5,6 @@
 	background: #f4f7f8;
 	margin: 10px auto;
 	padding: 20px;
-	background: #f4f7f8;
 	border-radius: 8px;
     font-family: 'Lato', sans-serif;
 }
@@ -70,7 +69,7 @@
 	height:35px;
 }
 .form-style-5 .number {
-	background: #FF3B3F;
+	background: #ef5341;
 	color: #fff;
 	height: 30px;
 	width: 30px;
@@ -91,12 +90,12 @@
 	padding: 10px 15px 10px 15px;
 	color: #FFF;
 	margin: 0 auto;
-	background: rgba(255, 59, 63,1);
+	background:  #ef5341;
 	font-size: 18px;
 	text-align: center;
 	font-style: normal;
 	width: 20%;
-	border: 1px solid #FF3B3F;
+	border: 1px solid  #ef5341;
     border-radius: 8%;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
@@ -105,7 +104,7 @@
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
 {
-	background:  #bce7f1;
+	background:  #baccb7;
     color: black;
 }
 
@@ -133,6 +132,4 @@
     margin-top: 3%;
     color: rgb(49, 56, 56);
   }
-  body {
-    background-color: #EFEFEF;
-  }
+
