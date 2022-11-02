@@ -26,6 +26,7 @@
 .form-style-5 label {
 	display: block;
 	margin-bottom: 8px;
+	margin-left: 10px;
 }
 .form-style-5 input[type="text"],
 .form-style-5 input[type="date"],
@@ -100,7 +101,7 @@
 	width: 33%;
     border-radius: 7px;
 	border: none;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
     cursor: pointer;
 	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
 }
@@ -135,16 +136,4 @@
     margin-top: 3%;
     color: rgb(66, 83, 83);
 	font-weight: 600;
-  }
-
-
-  .deleteButton {
-    background-color: #bce7f1;
-    margin-bottom: 10px;
-    margin-top: 50px;
-    padding: 2px;
-    font-size: 12px;
-    border-radius: 5px;
-    width: 23%; 
-    cursor: pointer;
   }

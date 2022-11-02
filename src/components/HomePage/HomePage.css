@@ -25,7 +25,7 @@
 .divider-wrapper {
     position: relative;
     margin-top: 690px;
-    background-color: #f6f5e8;
+    background-color: rgba(246, 245, 232, 0.9);
     height: 700px;   
 }
 .custom-shape-divider-top-1666820762 {
@@ -45,7 +45,7 @@
 }
 
 .custom-shape-divider-top-1666820762 .shape-fill {
-    fill: #B56357;
+    fill: rgba(181, 99, 87, 0.3);
 }
 .homepage-header {
     text-align: center;
@@ -65,7 +65,6 @@
     opacity: 0;
 }
 .login-container {
-    /* background-color: rgba(17, 21, 20, 0.2); */
     border-radius: 15%;
     width: 22%;
     padding: 2%;
@@ -114,4 +113,16 @@
 }
 .hidden {
     visibility: hidden;
+}
+
+.servicesHeader {
+  /* position: absolute; */
+
+}
+
+.servicesContent{
+    position:absolute;
+    top:250px;
+    right: 450px;
+
 }

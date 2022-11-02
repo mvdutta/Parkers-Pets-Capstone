@@ -12,13 +12,12 @@ code {
     monospace;
 } */
 .feedback {
-  border: 1px solid rgba(255, 59, 63, 0.8);
   padding: 1rem;
-  background-color: #bce7f1;
+  background-image: url("https://cdn.pixabay.com/photo/2015/09/15/18/17/paw-print-941499__340.jpg");
   position: absolute;
   top: 20%;
   left: 50%;
-  width: 70%;
+  width: 100%;
   transform: translate(-50%, -50%);
   animation: 1s slideDown;
 }

@@ -98,11 +98,11 @@ export const PetForm = () => {
             <legend>
               <span className={styles["number"]}>1</span> Your Pet's Info
             </legend>
+            <label htmlFor="Name">Name</label>
             <input
               type="text"
               id="name"
               name="field1"
-              placeholder="Name *"
               required
               value={pet.name}
               onChange={(evt) => {
@@ -111,11 +111,11 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             />
+            <label htmlFor="Age">Age</label>
             <input
               type="number"
               id="age"
-              name="field1"
-              placeholder="Age *"
+              name="field2"
               required
               value={pet.age}
               onChange={(evt) => {
@@ -124,12 +124,11 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             />
-
+            <label htmlFor="color">Color(s)</label>
             <input
               type="text"
               id="color"
               name="field3"
-              placeholder="Color(s) *"
               required
               value={pet.color}
               onChange={(evt) => {
@@ -138,7 +137,7 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             />
-            <label for="petType">Type of Pet</label>
+            <label for="petType">Select Type of Pet</label>
             <select
               id="petType"
               name="field4"
@@ -151,11 +150,11 @@ export const PetForm = () => {
             >
               {petOptions}
             </select>
+            <label htmlFor="Breed">Breed or Description</label>
             <input
               type="text"
               id="breedSpecies"
               name="field5"
-              placeholder="breed/species or description *"
               required
               value={pet.breedSpecies}
               onChange={(evt) => {
@@ -164,11 +163,11 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             />
+            <label htmlFor="Name">Add an Image url</label>
             <input
               type="text"
               id="image"
               name="field6"
-              placeholder="image url *"
               required
               value={pet.image}
               onChange={(evt) => {
@@ -182,10 +181,10 @@ export const PetForm = () => {
             <legend>
               <span className={styles["number"]}>2</span>Your Pet's Care
             </legend>
+            <label htmlFor="VetInfo">Vet Info</label>
             <textarea
               id="vetInfo"
               name="field7"
-              placeholder="Vet Info *"
               required
               value={pet.vetInfo}
               onChange={(evt) => {
@@ -194,11 +193,10 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             ></textarea>
-
+            <label htmlFor="instructions">Care Notes/Instructions</label>
             <textarea
               id="instructions"
               name="field8"
-              placeholder="Care Notes/Instructions *"
               value={pet.instructions}
               onChange={(evt) => {
                 const copy = { ...pet };

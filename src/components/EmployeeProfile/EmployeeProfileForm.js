@@ -100,7 +100,7 @@ export const EmployeeProfileForm = () => {
                 onChange={
                     (evt) => {
                         const copy = {...user}
-                        copy.streetAddress = evt.target.value
+                        copy.zipCode = evt.target.value
                         setUser(copy)
                     }
                 }
@@ -118,22 +118,6 @@ export const EmployeeProfileForm = () => {
             </fieldset>
             <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
             </form>
-            <button className={styles.deleteButton} 
-        onClick={()=> {
-            const confirmed = window.confirm("Are you sure you want to delete your profile?")
-            if(!confirmed) return
-            fetch(`http://localhost:8088/users/${parkerUserObject.id}`, {
-                method: "DELETE"
-            })
-            .then(() => {
-                setLoggedIn(false)
-                localStorage.clear()
-                navigate("/")
-            })
-        }}
-    
-    
-    >Delete Profile</button>
             </div>    
            
         </>
