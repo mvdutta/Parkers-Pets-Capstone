@@ -45,7 +45,7 @@
 }
 
 .custom-shape-divider-top-1666820762 .shape-fill {
-    fill: rgba(181, 99, 87, 0.3);
+    fill: rgba(181, 172, 87, 0.3);
 }
 .homepage-header {
     text-align: center;
@@ -66,12 +66,12 @@
 }
 .login-container {
     border-radius: 15%;
-    width: 22%;
-    padding: 2%;
+    width: 20%;
+    padding: 1%;
     font-size: 20px;
     color: rgb(243, 248, 248);
     text-align: center;
-    border: 1px solid #B56357;
+    border: 1px solid #c99991;
 }
 .login-holder {
     display: flex;

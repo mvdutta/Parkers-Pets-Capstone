@@ -115,7 +115,7 @@ export const EmployeeBioForm = () => {
             <textarea
               id="biography"
               name="field2"
-              rows="10"
+              rows="8"
               required
               value={employee.biography}
               onChange={(evt) => {

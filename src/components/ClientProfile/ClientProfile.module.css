@@ -40,11 +40,11 @@
 
 .deleteButton {
     display: block;
-	padding: 10px 15px 10px 15px;
-	color: rgb(57, 58, 58);
+	padding: 8px;
+	color: white;
     margin-left: 50px;
     margin-top: 150px;
-	background: rgba(217, 219, 176, 0.9);
+    background-color: #B56357;
 	font-size: 14px;
 	text-align: center;
 	font-style: normal;
