@@ -46,7 +46,7 @@ export const EmployeeProfile = () => {
         <MyCard
           title="My Bio"
           body="Create and update your bio and services"
-          linkTo="/"
+          linkTo="/employeebioform"
           image="script.png"
         />
         <MyCard

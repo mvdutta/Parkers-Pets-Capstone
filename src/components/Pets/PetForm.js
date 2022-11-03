@@ -55,7 +55,6 @@ export const PetForm = () => {
       <option
         key={petType.petTypeId}
         value={petType.petTypeId}
-        // selected = {petType.petTypeId===pet.petTypeId}
       >
         {petType.type}
       </option>
