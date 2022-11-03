@@ -73,7 +73,7 @@
 }
 .form-style-5 select{
 	-webkit-appearance: menulist-button;
-	height:35px;
+	height: 40px;
 }
 .form-style-5 .number {
 	background: #B56357;
@@ -117,7 +117,7 @@
 
 .checkboxHolder {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .register-text {
     margin-right: 10px;
@@ -139,4 +139,14 @@
     margin-top: 3%;
     color: rgb(66, 83, 83);
 	font-weight: 600;
+  }
+  .bioImage {
+	display: block;
+  	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 3px solid #B56357;
+	margin-bottom: 50px;
+	border-radius: 10px;
+  
   }

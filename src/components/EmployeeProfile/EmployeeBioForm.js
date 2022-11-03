@@ -88,17 +88,16 @@ export const EmployeeBioForm = () => {
                 setFeedback("Biography successfully saved")
             })
             }
-            const greeting =`${employee.user.fullName}`
+            const greeting = employee.user.fullName[employee.user.fullName.length-1] === 's' ? `${employee.user.fullName}' Bio`:`${employee.user.fullName}'s Bio`
         return ( <>
             <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
             </div>
             <NavBar/>  
             <h1 className={styles.formHeader}>{greeting}</h1>
-            <div className={styles.bioImage}>
-                <img src="https://media.istockphoto.com/photos/taking-pictures-in-aquarium-picture-id910189228?k=20&m=910189228&s=612x612&w=0&h=zDccfJ3rwOhcABRIsV8Hn5zJ5IgBhDxHjeY9TvjSvEM="/>
-            </div>
            <div className={styles["form-style-5"]}>
+            <img className={styles.bioImage}src={employee.profileImage}/>
+         
             <form>
             <fieldset>
             <legend><span className={styles["number"]}>1</span> My Name, Bio & Photo</legend>
