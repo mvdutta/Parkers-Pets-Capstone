@@ -129,6 +129,17 @@ export const EmployeeBioForm = () => {
             </select>
             </fieldset>
 
+            <label htmlFor="zipCode">Zip Code</label>
+            <input type="text" id="zipCode" name="field4" required value={employee.user.zipCode}
+                onChange={
+                    (evt) => {
+                        const copy = {...employee}
+                        copy.user.zipCode = evt.target.value
+                        setEmployee(copy)
+                    }
+                }
+            />   
+
 
             </form>
             </div>
