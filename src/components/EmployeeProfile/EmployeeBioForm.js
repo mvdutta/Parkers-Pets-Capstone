@@ -11,7 +11,13 @@ export const EmployeeBioForm = () => {
         medications: 0,
         profileImage: "",
         petTypeId: "",
+        user:{},
+        petType:{}
     })
+    // const [user, setUser] = useState[{}]
+
+    // const [petType, setPetTypes] = useState[{}]
+    
     const {loggedIn, setLoggedIn} = useContext(UserContext)
 
 
@@ -50,50 +56,47 @@ export const EmployeeBioForm = () => {
                 setFeedback("Profile successfully saved")
             })
             }
-            const greeting = employee?.user?.fullName[employee?.user?.fullName.length-1] === 's' ? `${employee?.user?.fullName}' Profile`:`${employee?.user?.fullName}'s Profile`
+            const greeting =`Hello ${employee?.user?.fullName}`
         return ( <>
             <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
             </div>
             <NavBar/>  
             <h1 className={styles.formHeader}>{greeting}</h1>
-            <div className={styles["form-style-5"]}>
+           <div className={styles["form-style-5"]}>
             <form>
             <fieldset>
             <legend><span className={styles["number"]}>1</span> Full Name & Email</legend>
             <label htmlFor="fullName">Full Name</label>
-            <input type="text" id="fullName" name="field1" required value={user.fullName}
+            <input type="text" id="fullName" name="field1" required value={employee.user.fullName}
                 onChange={
                     (evt) => {
-                        const copy = {...user}
-                        copy.fullName = evt.target.value
-                        setUser(copy)
+                        const copy = {...employee}
+                        copy.user.fullName = evt.target.value
+                        setEmployee(copy)
                     }
                 }   
             />
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="field2" required value={user.email}
-                onChange={
-                    (evt) => {
-                        const copy = {...user}
-                        copy.email = evt.target.value
-                        setUser(copy)
-                    }
-                }
-            />    
+            <label htmlFor="Biography">My Biography</label>
+            <textarea
+              id="biography"
+              name="field2"
+              required
+              value={employee.biography}
+              onChange={(evt) => {
+                const copy = { ...employee };
+                copy.biography = evt.target.value;
+                setEmployee(copy);
+              }}
+            ></textarea>
             </fieldset>
-            <fieldset>
-            <legend><span className={styles["number"]}>2</span> Street Address, Zip Code & Phone</legend>
-            <label htmlFor="streetAddress">Street Address</label>
-            <input type="text" id="streetAddress" name="field3" required value={user.streetAddress}
-                onChange={
-                    (evt) => {
-                        const copy = {...user}
-                        copy.streetAddress = evt.target.value
-                        setUser(copy)
-                    }
-                }
-            />
+            
+            </form>
+            </div>
+
+
+        {/*
+            
             <label htmlFor="zipCode">Zip Code</label>
             <input type="text" id="zipCode" name="field4" required value={user.zipCode}
                 onChange={
@@ -117,7 +120,7 @@ export const EmployeeBioForm = () => {
             </fieldset>
             <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
             </form>
-            </div>    
+            </div>     */}
            
         </>
         )
