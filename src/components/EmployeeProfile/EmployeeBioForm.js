@@ -16,7 +16,7 @@ export const EmployeeBioForm = () => {
     })
     // const [user, setUser] = useState[{}]
 
-    // const [petType, setPetTypes] = useState[{}]
+    const [petTypes, setPetTypes] = useState([])
     
     const {loggedIn, setLoggedIn} = useContext(UserContext)
 
@@ -41,6 +41,25 @@ export const EmployeeBioForm = () => {
             setEmployee(data)
         })
     }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/petTypes`)
+          .then((res) => res.json())
+          .then((data) => {
+            setPetTypes(data);
+          });
+      }, []);
+
+      const petOptions = petTypes.map((petType) => {
+        return (
+          <option
+            key={petType.petTypeId}
+            value={petType.petTypeId}
+          >
+            {petType.type}
+          </option>
+        );
+      });
 
     const handleSaveButtonClick = (clickEvent) => {
         clickEvent.preventDefault()
@@ -90,7 +109,26 @@ export const EmployeeBioForm = () => {
               }}
             ></textarea>
             </fieldset>
-            
+            <fieldset>
+            <legend><span className={styles["number"]}>2</span> Street Address, Zip Code & Phone</legend>
+            <label htmlFor="petType">What Type of Pet Do You Care For?</label>
+            <select
+              id="petType"
+              name="field3"
+              value={employee.petType.type}
+              onChange={(evt) => {
+                const copy = { ...employee };
+                copy.petTypeId = evt.target.value;
+                setEmployee(copy);
+              }}
+            >
+                {/* <option>Dog</option>
+                <option>Cat</option> */}
+                {petOptions}
+            </select>
+            </fieldset>
+
+
             </form>
             </div>
 
