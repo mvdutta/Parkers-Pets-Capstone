@@ -14,7 +14,6 @@ export const EmployeeBioForm = () => {
         user:{id:"", fullName:"", email:"", streetAddress:"", zipCode:"", phone:"", role:0},
         petType:{id: "", type:"", petId: ""}
     })
-    // const [user, setUser] = useState[{}]
 
     const [petTypes, setPetTypes] = useState([])
     
@@ -51,7 +50,6 @@ export const EmployeeBioForm = () => {
       }, []);
 
       const petOptions = petTypes.map((petType) => {
-        console.log(petType)
         return (
           <option
             key={`petOption--${petType.petId}`}
@@ -63,30 +61,47 @@ export const EmployeeBioForm = () => {
       });
 
     const handleSaveButtonClick = (clickEvent) => {
+        const updatedUser = employee.user
+        const updatedEmployee = {...employee}
+        delete updatedEmployee.user
+        delete updatedEmployee.petType
         clickEvent.preventDefault()
           return fetch(`http://localhost:8088/employees/${employee.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(employee)
+                body: JSON.stringify(updatedEmployee)
             })
             .then(res => res.json()) 
             .then(() => {
-                setFeedback("Profile successfully saved")
+                fetch(`http://localhost:8088/users/${updatedUser.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updatedUser)
+            })
+            .then(res => res.json()) 
+            })
+            .then(() => {
+                setFeedback("Biography successfully saved")
             })
             }
-            const greeting =`Hello ${employee?.user?.fullName}`
+            const greeting =`${employee.user.fullName}`
         return ( <>
             <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
             </div>
             <NavBar/>  
             <h1 className={styles.formHeader}>{greeting}</h1>
+            <div className={styles.bioImage}>
+                <img src="https://media.istockphoto.com/photos/taking-pictures-in-aquarium-picture-id910189228?k=20&m=910189228&s=612x612&w=0&h=zDccfJ3rwOhcABRIsV8Hn5zJ5IgBhDxHjeY9TvjSvEM="/>
+            </div>
            <div className={styles["form-style-5"]}>
             <form>
             <fieldset>
-            <legend><span className={styles["number"]}>1</span> Full Name & Email</legend>
+            <legend><span className={styles["number"]}>1</span> My Name, Bio & Photo</legend>
             <label htmlFor="fullName">Full Name</label>
             <input type="text" id="fullName" name="field1" required value={employee.user.fullName}
                 onChange={
@@ -110,26 +125,34 @@ export const EmployeeBioForm = () => {
                 setEmployee(copy);
               }}
             ></textarea>
+             <label htmlFor="image">Profile Photo URL</label>
+            <input type="text" id="profileImage" name="field4" required value={employee.profileImage}
+                onChange={
+                    (evt) => {
+                        const copy = {...employee}
+                        copy.profileImage = evt.target.value
+                        setEmployee(copy)
+                    }
+                }
+            />  
             </fieldset>
             <fieldset>
-            <legend><span className={styles["number"]}>2</span> Street Address, Zip Code & Phone</legend>
-            <label htmlFor="petType">What Type of Pet Do You Care For?</label>
+            <legend><span className={styles["number"]}>2</span> Pets & Area I Serve</legend>
+            <label htmlFor="petType">Type of Pet I Specialize In</label>
             <select
               id="petType"
               name="field3"
               value={employee.petTypeId}
               onChange={(evt) => {
                 const copy = { ...employee };
-                copy.petTypeId = evt.target.value;
+                copy.petTypeId = +evt.target.value;
                 setEmployee(copy);
               }}
             >
-                {/* <option>Dog</option>
-                <option>Cat</option> */}
                 {petOptions}
             </select>
-            <label htmlFor="zipCode">Zip Code</label>
-            <input type="text" id="zipCode" name="field4" required value={employee.user.zipCode}
+            <label htmlFor="phone">Zip Code I Serve</label>
+            <input type="text" id="phone" name="field5" required value={employee.user.zipCode}
                 onChange={
                     (evt) => {
                         const copy = {...employee}
@@ -138,39 +161,27 @@ export const EmployeeBioForm = () => {
                     }
                 }
             />  
-            <label htmlFor="phone">Phone Number</label>
-            <input type="text" id="phone" name="field5" required value={employee.user.phone}
-                onChange={
-                    (evt) => {
-                        const copy = {...employee}
-                        copy.phone = evt.target.value
-                        setEmployee(copy)
-                    }
-                }
-            />  
+             <div className={styles.checkboxHolder}>
+              <label htmlFor="checkbox" className={styles["register-text"]}>
+                I can administer medications
+              </label>
+              <input
+                className={styles.checkbox}
+                onChange={(evt) => {
+                  const copy = { ...employee };
+                  copy.medications = evt.target.checked ? 1 : 0;
+                  setEmployee(copy);
+                }}
+                type="checkbox"
+                id="medications"
+                checked={employee.medications === 1 ? true : false}
+              />
+            </div>
             </fieldset>
             <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
 
             </form>
             </div>
-
-
-        {/*
-             
-             <label htmlFor="phone">Phone Number</label>
-            <input type="text" id="phone" name="field5" required value={user.phone}
-                onChange={
-                    (evt) => {
-                        const copy = {...user}
-                        copy.phone = evt.target.value
-                        setUser(copy)
-                    }
-                }
-            />   
-            </fieldset>
-            <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
-            </form>
-            </div>     */}
            
         </>
         )
