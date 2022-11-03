@@ -77,12 +77,12 @@ export const HomePage = () => {
         </div>
         <div className={loggedIn?`login-holder hidden`:`login-holder`}>
             <div className="login-container">
-            <h2 className='login-header'>Log In</h2>
+            <h2 className='login-header'>Sign In</h2>
             <form onSubmit={handleLogin}>
                 <div>
                     <input className="email-input" type="email" value={email} placeholder="enter your email"onChange={evt => setEmail(evt.target.value)}></input>
                 </div>
-                <button className="login-button" type="submit">login</button>
+                <button className="login-button" type="submit">sign in</button>
             </form>
             <p className="login-text">Don't have an account yet?</p>
             <p className="login-text"><Link to="/register" style={linkStyle}>Register Here</Link></p>
