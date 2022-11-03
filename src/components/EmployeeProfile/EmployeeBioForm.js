@@ -127,8 +127,6 @@ export const EmployeeBioForm = () => {
                 <option>Cat</option> */}
                 {petOptions}
             </select>
-            </fieldset>
-
             <label htmlFor="zipCode">Zip Code</label>
             <input type="text" id="zipCode" name="field4" required value={employee.user.zipCode}
                 onChange={
@@ -138,7 +136,20 @@ export const EmployeeBioForm = () => {
                         setEmployee(copy)
                     }
                 }
-            />   
+            />  
+            <label htmlFor="phone">Phone Number</label>
+            <input type="text" id="phone" name="field5" required value={employee.user.phone}
+                onChange={
+                    (evt) => {
+                        const copy = {...employee}
+                        copy.phone = evt.target.value
+                        setEmployee(copy)
+                    }
+                }
+            />  
+            </fieldset>
+
+  
 
 
             </form>
@@ -146,17 +157,7 @@ export const EmployeeBioForm = () => {
 
 
         {/*
-            
-            <label htmlFor="zipCode">Zip Code</label>
-            <input type="text" id="zipCode" name="field4" required value={user.zipCode}
-                onChange={
-                    (evt) => {
-                        const copy = {...user}
-                        copy.zipCode = evt.target.value
-                        setUser(copy)
-                    }
-                }
-            />   
+             
              <label htmlFor="phone">Phone Number</label>
             <input type="text" id="phone" name="field5" required value={user.phone}
                 onChange={
