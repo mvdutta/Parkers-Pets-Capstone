@@ -101,6 +101,7 @@ export const EmployeeBioForm = () => {
             <textarea
               id="biography"
               name="field2"
+              rows="10"
               required
               value={employee.biography}
               onChange={(evt) => {
@@ -148,9 +149,7 @@ export const EmployeeBioForm = () => {
                 }
             />  
             </fieldset>
-
-  
-
+            <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
 
             </form>
             </div>
