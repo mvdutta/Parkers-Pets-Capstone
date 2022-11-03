@@ -53,8 +53,8 @@ export const PetForm = () => {
   const petOptions = petTypes.map((petType) => {
     return (
       <option
-        key={petType.petTypeId}
-        value={petType.petTypeId}
+        key={petType.petId}
+        value={petType.petId}
       >
         {petType.type}
       </option>
@@ -136,7 +136,7 @@ export const PetForm = () => {
                 setPet(copy);
               }}
             />
-            <label for="petType">Select Type of Pet</label>
+            <label htmlFor="petType">Select Type of Pet</label>
             <select
               id="petType"
               name="field4"

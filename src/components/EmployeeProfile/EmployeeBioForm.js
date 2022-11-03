@@ -11,8 +11,8 @@ export const EmployeeBioForm = () => {
         medications: 0,
         profileImage: "",
         petTypeId: "",
-        user:{},
-        petType:{}
+        user:{id:"", fullName:"", email:"", streetAddress:"", zipCode:"", phone:"", role:0},
+        petType:{id: "", type:"", petId: ""}
     })
     // const [user, setUser] = useState[{}]
 
@@ -51,10 +51,11 @@ export const EmployeeBioForm = () => {
       }, []);
 
       const petOptions = petTypes.map((petType) => {
+        console.log(petType)
         return (
           <option
-            key={petType.petTypeId}
-            value={petType.petTypeId}
+            key={`petOption--${petType.petId}`}
+            value={petType.petId}
           >
             {petType.type}
           </option>
@@ -115,7 +116,7 @@ export const EmployeeBioForm = () => {
             <select
               id="petType"
               name="field3"
-              value={employee.petType.type}
+              value={employee.petTypeId}
               onChange={(evt) => {
                 const copy = { ...employee };
                 copy.petTypeId = evt.target.value;
