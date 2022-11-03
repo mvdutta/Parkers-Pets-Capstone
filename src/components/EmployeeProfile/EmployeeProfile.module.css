@@ -9,9 +9,6 @@
 
 .welcomeMessage {
     margin-bottom: 7%;
-    margin-top: 3%;
-    color: rgb(49, 56, 56);
-    margin-left: 3%;
 }
 .custom-shape-divider-top-1666820762 {
     position: absolute;
@@ -30,10 +27,28 @@
 } 
 
 .custom-shape-divider-top-1666820762 .shape-fill {
-    fill: #bce7f1;
+    fill:rgba(181, 99, 87, 0.3);
 } 
 .divider-wrapper {
     position: relative;
-    margin-top: 9%;
+    margin-top: 5%;
     background-color: #EFEFEF;
 } 
+
+.deleteButton {
+    display: block;
+	padding: 10px 15px 10px 15px;
+	color: rgb(57, 58, 58);
+    margin-left: 50px;
+    margin-top: 150px;
+    background-color: #B56357;
+    color: white;
+	font-size: 14px;
+	text-align: center;
+	font-style: normal;
+	width: 7%;
+    border-radius: 7px;
+	border: none;
+    cursor: pointer;
+	box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+  }

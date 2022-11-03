@@ -30,10 +30,27 @@
 } 
 
 .custom-shape-divider-top-1666820762 .shape-fill {
-    fill: #bce7f1;
+    fill: rgba(181, 99, 87, 0.3);
 } 
 .divider-wrapper {
     position: relative;
-    margin-top: 9%;
+    margin-top: 5%;
     background-color: #EFEFEF;
 } 
+
+.deleteButton {
+    display: block;
+	padding: 8px;
+	color: white;
+    margin-left: 50px;
+    margin-top: 150px;
+    background-color: #B56357;
+	font-size: 14px;
+	text-align: center;
+	font-style: normal;
+	width: 7%;
+    border-radius: 7px;
+	border: none;
+    cursor: pointer;
+	box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+  }

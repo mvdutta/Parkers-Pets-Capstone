@@ -20,7 +20,7 @@ export const EmployeeProfileForm = () => {
     useEffect(() => {
         if (feedback !== "") {
             // Clear feedback to make entire element disappear after 3 seconds
-            setTimeout(() => setFeedback(""), 3000);
+            setTimeout(() => setFeedback(""), 5000);
         }
     }, [feedback])
 
@@ -62,7 +62,8 @@ export const EmployeeProfileForm = () => {
             <form>
             <fieldset>
             <legend><span className={styles["number"]}>1</span> Full Name & Email</legend>
-            <input type="text" id="fullName" name="field1" placeholder="Full Name *" required value={user.fullName}
+            <label htmlFor="fullName">Full Name</label>
+            <input type="text" id="fullName" name="field1" required value={user.fullName}
                 onChange={
                     (evt) => {
                         const copy = {...user}
@@ -71,8 +72,8 @@ export const EmployeeProfileForm = () => {
                     }
                 }   
             />
-
-            <input type="email" id="email" name="field2" placeholder="Email *" required value={user.email}
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" name="field2" required value={user.email}
                 onChange={
                     (evt) => {
                         const copy = {...user}
@@ -83,8 +84,9 @@ export const EmployeeProfileForm = () => {
             />    
             </fieldset>
             <fieldset>
-            <legend><span className={styles["number"]}>2</span>Street Address, Zip Code & Phone</legend>
-            <input type="text" id="streetAddress" name="field3" placeholder="Street Address *" required value={user.streetAddress}
+            <legend><span className={styles["number"]}>2</span> Street Address, Zip Code & Phone</legend>
+            <label htmlFor="streetAddress">Street Address</label>
+            <input type="text" id="streetAddress" name="field3" required value={user.streetAddress}
                 onChange={
                     (evt) => {
                         const copy = {...user}
@@ -93,18 +95,18 @@ export const EmployeeProfileForm = () => {
                     }
                 }
             />
-
-            <input type="text" id="zipCode" name="field4" placeholder="Zip Code *" required value={user.zipCode}
+            <label htmlFor="zipCode">Zip Code</label>
+            <input type="text" id="zipCode" name="field4" required value={user.zipCode}
                 onChange={
                     (evt) => {
                         const copy = {...user}
-                        copy.streetAddress = evt.target.value
+                        copy.zipCode = evt.target.value
                         setUser(copy)
                     }
                 }
             />   
-
-            <input type="text" id="phone" name="field5" placeholder="Phone Number *" required value={user.phone}
+             <label htmlFor="phone">Phone Number</label>
+            <input type="text" id="phone" name="field5" required value={user.phone}
                 onChange={
                     (evt) => {
                         const copy = {...user}
@@ -116,22 +118,6 @@ export const EmployeeProfileForm = () => {
             </fieldset>
             <input type="submit" value="Save Changes" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} />
             </form>
-            <button className={styles.deleteButton} 
-        onClick={()=> {
-            const confirmed = window.confirm("Are you sure you want to delete your profile?")
-            if(!confirmed) return
-            fetch(`http://localhost:8088/users/${parkerUserObject.id}`, {
-                method: "DELETE"
-            })
-            .then(() => {
-                setLoggedIn(false)
-                localStorage.clear()
-                navigate("/")
-            })
-        }}
-    
-    
-    >Delete Profile</button>
             </div>    
            
         </>
