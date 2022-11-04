@@ -54,7 +54,7 @@ export const PetList = () => {
         <div className={styles.welcomeMessage}>
           Your Pet(s): <span className={styles.petName}>{petNamelist}</span>
           <div className={styles.addPetLink}>
-            <Link  to="/petform"> Add New Pet</Link></div>
+           <button className={styles.newPetButton}><Link className={styles.newPetLink} to="/petform"> Add A Pet</Link></button></div>
         </div>
       </div>
 

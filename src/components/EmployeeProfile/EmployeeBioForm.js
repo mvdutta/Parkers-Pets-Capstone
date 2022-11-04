@@ -34,10 +34,11 @@ export const EmployeeBioForm = () => {
     const parkerUserObject = JSON.parse(localParkerUser)
 
     useEffect(() => {
-        fetch(`http://localhost:8088/employees/${parkerUserObject.id}?_expand=user&_expand=petType`)
+        fetch(`http://localhost:8088/employees?userId=${parkerUserObject.id}&_expand=user&_expand=petType`)
         .then(res => res.json())
         .then((data) => {
-            setEmployee(data)
+          console.log(data[0])
+            setEmployee(data[0])
         })
     }, [])
 
@@ -61,6 +62,10 @@ export const EmployeeBioForm = () => {
       });
 
     const handleSaveButtonClick = (clickEvent) => {
+      if (employee.petTypeId===""){
+        window.alert("A pet type must be selected")
+        return
+      }
         const updatedUser = employee.user
         const updatedEmployee = {...employee}
         delete updatedEmployee.user
@@ -142,12 +147,14 @@ export const EmployeeBioForm = () => {
               id="petType"
               name="field3"
               value={employee.petTypeId}
+              required
               onChange={(evt) => {
                 const copy = { ...employee };
                 copy.petTypeId = +evt.target.value;
                 setEmployee(copy);
               }}
             >
+              <option value="">Pick a pet type</option>
                 {petOptions}
             </select>
             <label htmlFor="phone">Zip Code I Serve</label>

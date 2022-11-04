@@ -11,7 +11,8 @@ useEffect(() => {
     fetch(`http://localhost:8088/employees?_expand=user&_expand=petType`)
     .then(res => res.json())
     .then((data) => {
-        setTeam(data)
+      const petTypeHasBeenSet = data.filter(el => el.hasOwnProperty("petType"))
+        setTeam(petTypeHasBeenSet)
     })
 }, [])
 
@@ -33,7 +34,7 @@ const teamCards = team.map(teamMember => (
             petType = {teamMember.petType.type}
             meds = {teamMember.medications === 1 ? <span>*Able to give meds/vet tech</span>: <span className={styles.invisible}>*Able to give meds/vet tech</span>}
             icon = {icons[teamMember.petType.type]}
-            bio = {teamMember.biography}
+            bio = {teamMember.biography===""?`${teamMember.user.fullName} has not created a bio yet`:teamMember.biography }
             />
 ))
   return (
