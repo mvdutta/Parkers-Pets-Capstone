@@ -15,6 +15,16 @@ useEffect(() => {
     })
 }, [])
 
+const icons = {
+    "Cats": "/cat-icon.png",
+    "Dogs": "/poodle-icon.png",
+    "Insects and Spiders": "/spider-icon.png",
+    "Fish": "/fish-icon.png",
+    "Birds": "/macaw-icon.png",
+    "Rodents": "/hamster-icon.png",
+    "Amphibians and Reptiles": "/snake-icon.png"
+} 
+
 const teamCards = team.map(teamMember => (
     <TeamCard
             key={`teamMember--${teamMember.id}`}
@@ -22,7 +32,7 @@ const teamCards = team.map(teamMember => (
             name = {teamMember.user.fullName}
             petType = {teamMember.petType.type}
             meds = {teamMember.medications === 1 ? <span>*Able to give meds/vet tech</span>: <span className={styles.invisible}>*Able to give meds/vet tech</span>}
-            logo = "/cat-icon.png"
+            icon = {icons[teamMember.petType.type]}
             />
 ))
   return (
