@@ -21,7 +21,7 @@ const teamCards = team.map(teamMember => (
             image = {teamMember.profileImage}
             name = {teamMember.user.fullName}
             petType = {teamMember.petType.type}
-            meds = "*Able to give meds/vet tech"
+            meds = {teamMember.medications === 1 ? <span>*Able to give meds/vet tech</span>: <span className={styles.invisible}>*Able to give meds/vet tech</span>}
             logo = "/cat-icon.png"
             />
 ))
