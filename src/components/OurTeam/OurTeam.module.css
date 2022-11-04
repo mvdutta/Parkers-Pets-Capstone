@@ -21,15 +21,21 @@
   border: none;
   background-color: #B56357;
   border-radius: 7px;
-  padding: 4px;
+  padding: 5px;
   color: white;
   box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
 }
 .cardLogo {
     margin-bottom: 10px;
-    margin-top: -5px;
+    margin-top: -10px;
     width: 40px;
 }
 .cardText {
     margin-top: -10px;
+}
+
+.cardHolder{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 20px;
 }
