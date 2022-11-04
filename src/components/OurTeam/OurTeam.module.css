@@ -3,6 +3,8 @@
 .myCard {
     width: 18rem;
     text-align: center;
+    border: 1px solid #B56357;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
 }
 .profileImage {
   display: block;
@@ -28,6 +30,7 @@
   padding: 5px;
   color: white;
   box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+  margin-bottom: 1rem;
 }
 .cardIcon {
     margin-bottom: 10px;
@@ -41,5 +44,6 @@
 .cardHolder{
     display: flex;
     flex-wrap: wrap;
-    gap: 30px 20px;
+    gap: 100px 35px;
+    margin-bottom: 100px;
 }
