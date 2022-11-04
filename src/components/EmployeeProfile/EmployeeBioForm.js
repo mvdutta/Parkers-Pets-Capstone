@@ -101,7 +101,7 @@ export const EmployeeBioForm = () => {
             <NavBar/>  
             <h1 className={styles.formHeader}>{greeting}</h1>
            <div className={styles["form-style-5"]}>
-            <img className={styles.bioImage}src={employee.profileImage}/>
+            <img className={styles.bioImage} src={employee.profileImage===""?"/generic_user.png":employee.profileImage}/>
          
             <form>
             <fieldset>
