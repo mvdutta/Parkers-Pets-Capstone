@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { NavBar } from "../NavBar/NavBar";
 import styles from "./PetView.module.css"
 
@@ -44,6 +44,7 @@ const PetView = () => {
   return (
     <>
         <NavBar/>
+        <Link to={`/employee/clientview/${pet.client_Id}`}>Back to Client</Link>
         <div>
             <div className={styles["imageholder"]}><img src={pet.image} alt=""></img></div>
             <table>

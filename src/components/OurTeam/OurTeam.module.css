@@ -1,0 +1,49 @@
+
+
+.myCard {
+    width: 18rem;
+    text-align: center;
+    border: 1px solid #B56357;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+}
+.profileImage {
+  display: block;
+  width: 15rem;
+  height: 14rem;
+  object-fit: cover;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #8b5e57;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+}
+
+.invisible {
+    visibility:hidden
+}
+
+.teamButton {
+  border: none;
+  background-color: #B56357;
+  border-radius: 7px;
+  padding: 5px;
+  color: white;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+  margin-bottom: 1rem;
+}
+.cardIcon {
+    margin-bottom: 10px;
+    margin-top: -10px;
+    width: 40px;
+}
+.cardText {
+    margin-top: -10px;
+}
+
+.cardHolder{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px 35px;
+    margin-bottom: 100px;
+}

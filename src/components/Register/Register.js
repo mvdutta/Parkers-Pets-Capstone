@@ -29,9 +29,25 @@ export const Register = (props) => {
         })
             .then(res => res.json())
             .then(createdUser => {
-                if (createdUser.hasOwnProperty("id")) {
-                    localStorage.setItem("parker_user", JSON.stringify(createdUser))
-                    setLoggedIn(true)       
+                localStorage.setItem("parker_user", JSON.stringify(createdUser))
+                setLoggedIn(true)       
+                return createdUser
+            }).then((createdUser)=>{
+                if (user.role===0) {
+                    fetch("http://localhost:8088/employees", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+            body: JSON.stringify({
+                userId:createdUser.id,
+                biography:"",
+                medications:0,
+                profileImage:"",
+                petTypeId:""
+            })
+        })
+
                 }
             }).then(()=>{
                 const whichProfile = user.role===0? "/employeeprofile":"/clientprofile"
@@ -46,7 +62,7 @@ export const Register = (props) => {
             .then(response => {
                 if (response.length > 0) {
                     // Duplicate email. No good.
-                    window.alert("Account with that email address already exists")
+                    window.alert("An account with that email address already exists")
                 }
                 else {
                     // Good email, create user.

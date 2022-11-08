@@ -36,7 +36,7 @@ export const NavBar = () => {
             <li>{loggedIn && <div className={styles.navWelcome}>Welcome {currentUser.fullName}</div>}</li>
             <li><Link className={styles.navLink} to="/">Home</Link></li>
             <li><Link className={styles.navLink}to="/aboutus">About Us</Link></li>
-            <li><Link className={styles.navLink} to="/">Our Team</Link></li>
+            <li><Link className={styles.navLink} to="/ourteam">Our Team</Link></li>
             <li><Link className={styles.navLink} to="/">FAQ</Link></li>
             <li><Link className={styles.navLink} to="/">Contact Us</Link></li>
             <li>{loggedIn && <Link className={styles.navLink}to={whichProfile}>My Dashboard</Link>}</li>
