@@ -97,7 +97,7 @@ export const HomePage = () => {
         <h1 className='servicesHeader'>Our Services</h1>  
         </div>
         <div className='servicesContent'>
-        Hello Content
+      
     </div>
     </div>
 
