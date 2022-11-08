@@ -16,6 +16,8 @@ export const EmployeeBioForm = () => {
     })
 
     const [petTypes, setPetTypes] = useState([])
+    const [enteredZips, setEnteredZips] = useState("")
+    const [zipObjects, setZipObjects] = useState([])
     
     const {loggedIn, setLoggedIn} = useContext(UserContext)
 
@@ -37,7 +39,6 @@ export const EmployeeBioForm = () => {
         fetch(`http://localhost:8088/employees?userId=${parkerUserObject.id}&_expand=user&_expand=petType`)
         .then(res => res.json())
         .then((data) => {
-          console.log(data[0])
             setEmployee(data[0])
         })
     }, [])
@@ -49,6 +50,16 @@ export const EmployeeBioForm = () => {
             setPetTypes(data);
           });
       }, []);
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/zipcodes`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            setZipObjects(data);
+          });
+      }, []);
+
 
       const petOptions = petTypes.map((petType) => {
         return (
@@ -94,6 +105,10 @@ export const EmployeeBioForm = () => {
             })
             }
             const greeting = employee.user.fullName[employee.user.fullName.length-1] === 's' ? `${employee.user.fullName}' Bio`:`${employee.user.fullName}'s Bio`
+
+            const updateZips = (evt) => {
+              setEnteredZips(evt.target.value) 
+            }
         return ( <>
             <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
@@ -157,15 +172,9 @@ export const EmployeeBioForm = () => {
               <option value="">Pick a pet type</option>
                 {petOptions}
             </select>
-            <label htmlFor="phone">Zip Code I Serve</label>
-            <input type="text" id="phone" name="field5" required value={employee.user.zipCode}
-                onChange={
-                    (evt) => {
-                        const copy = {...employee}
-                        copy.user.zipCode = evt.target.value
-                        setEmployee(copy)
-                    }
-                }
+            <label htmlFor="phone">Zip Codes I Serve</label>
+            <input type="text" id="phone" name="field5" required placeholder="separate by commas"
+                onChange={updateZips}
             />  
              <div className={styles.checkboxHolder}>
               <label htmlFor="checkbox" className={styles["register-text"]}>

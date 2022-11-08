@@ -36,7 +36,6 @@ export const EmployeeAppointments = () => {
         fetch(`http://localhost:8088/appointments?employeeId=${parkerUserObject.id}&sort=date&_order=desc`)
         .then(res=>res.json())
         .then(data =>{
-            console.log(data)
             setAppointments(data)
         })
       }, []);
