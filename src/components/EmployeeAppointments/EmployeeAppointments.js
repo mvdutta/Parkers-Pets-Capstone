@@ -33,7 +33,7 @@ export const EmployeeAppointments = () => {
           navigate("/denied")
         }
         setCurrentUser(parkerUserObject);
-        fetch(`http://localhost:8088/appointments?employeeId=${parkerUserObject.id}&sort=date&_order=desc`)
+        fetch(`http://localhost:8088/appointments?employee_Id=${parkerUserObject.id}&sort=date&_order=desc`)
         .then(res=>res.json())
         .then(data =>{
             setAppointments(data)
@@ -41,16 +41,16 @@ export const EmployeeAppointments = () => {
       }, []);
 
       const apptlist = appointments.map((appt,i)=>{
-        const clientUser = clientUsers.find(el => el.userId===appt.clientId)
+        const clientUser = clientUsers.find(el => el.userId===appt.client_Id)
         console.log(clientUser)
         return(
-        <tr key={`appts--${i}`}>
+        clientUser?<tr key={`appts--${i}`}>
         <td>{appt.date}</td>
         <td>{appt.time}</td>
         <td>{clientUser.user.fullName}</td>
         <td>{clientUser.user.streetAddress}, Nashville, TN-{clientUser.user.zipCode}</td>
-        <td><Link to={`/employee/clientview/${appt.clientId}`}>View Client Details</Link></td>
-        </tr>
+        <td><Link to={`/employee/clientview/${appt.client_Id}`}>View Client Details</Link></td>
+        </tr>:<tr><td>No appointments found</td></tr>
         )
     })
 

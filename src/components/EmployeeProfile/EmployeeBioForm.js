@@ -73,7 +73,14 @@ export const EmployeeBioForm = () => {
       });
 
     const handleSaveButtonClick = (clickEvent) => {
-      if (employee.petTypeId===""){
+      clickEvent.preventDefault()
+      const reg = /^\d{5}(?:,\s*\d{5})+$/
+      if(!reg.test(enteredZips.trim())) {
+        window.alert("Please enter 5 digit zip codes separated by commas")
+        return
+      }
+
+      if(employee.petTypeId===""){
         window.alert("A pet type must be selected")
         return
       }
@@ -81,7 +88,7 @@ export const EmployeeBioForm = () => {
         const updatedEmployee = {...employee}
         delete updatedEmployee.user
         delete updatedEmployee.petType
-        clickEvent.preventDefault()
+   
           return fetch(`http://localhost:8088/employees/${employee.id}`, {
                 method: "PUT",
                 headers: {
