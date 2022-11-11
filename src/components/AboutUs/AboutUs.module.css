@@ -1,0 +1,80 @@
+
+  .imageContainer {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0.9;
+  }
+  .contentHolder {
+    position: fixed;
+    width: 100%;
+    height: 50%;
+    background-color:#f6f5e8;
+    opacity: 0.9;
+    border: 30px solid  rgba(255, 59, 63, 0.2);
+    text-align: center;
+  }
+
+  .row {
+    display: -ms-flexbox; 
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  .column {
+    -ms-flex: 25%; 
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+ 
+  @media screen and (max-width: 800px) {
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .snakeImage {
+    height: 25%;
+  }
+  .dogImage {
+    height: 20%;
+  }
+  .dogLineImage {
+    width: 20%;
+    position: absolute;
+    left: 825px;
+    bottom: -50px;
+  }
+
+  .textHolder {
+    padding: 10px;
+    font-size: 19px;
+    width: 40%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aboutHeader {
+    margin-top: 25px;
+  }
