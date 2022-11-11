@@ -78,3 +78,13 @@
   .aboutHeader {
     margin-top: 25px;
   }
+
+  .locationBox {
+    position:absolute;
+    width:25%;
+    height:400px;
+    right:0;
+    top:0;
+    overflow-y: scroll;
+    text-align: left;
+  }

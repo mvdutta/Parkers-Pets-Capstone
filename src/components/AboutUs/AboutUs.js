@@ -1,4 +1,5 @@
 import React from 'react'
+import { Locations } from '../Locations/Locations'
 import { NavBar } from '../NavBar/NavBar'
 import styles from "./AboutUs.module.css"
 
@@ -18,6 +19,7 @@ export const AboutUs = () => {
 
       </p>
       <img src="/dog-line.png" className={styles.dogLineImage} />
+      <div className={styles.locationBox}><Locations/></div>
     </div>
   <div className={styles.imageContainer}>
   <div className={styles.row}> 
