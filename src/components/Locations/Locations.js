@@ -12,13 +12,15 @@ useEffect(()=>{
     })
 }, [])
 const lis = locations.map(el=>(
-    <li key={el.id}>{el.location}</li>
+    <li className={styles.singleLi} key={el.id}>{el.location}</li>
 ))
-  return (
-
+  return (<>
+    <div className={styles.locationContainer}>
+        <h5>Locations We Serve</h5>
         <ul>
             {lis}
         </ul>
-
+    </div>
+    </>
   )
 }

@@ -15,9 +15,10 @@ export const AboutUs = () => {
       <h2 className={styles.aboutHeader}>We Love Your Pets!</h2>
       <p className={styles.textHolder}>Parker's Pet Sitting is a Nashville, Tennesse based pet care and pet sitting company. We are dedicated to providing customizable and high quality care for any type of pet. 
       </p>
-      <p className={styles.textHolder}>Our pet sitters specialize in your type of pet(s), so that you can have the peace of mind knowing that your pet will receive the best care when you can't be there. Many of our pet sitters are also certified veterinary technicians, or have experience administering medications and can care for pets who are medically fragile.  
+      <p className={styles.textHolder}>Our pet sitters specialize in your type of pet(s), so that you can have the peace of mind knowing that your pet will receive the best care when you can't be there. Many of our pet sitters are also certified veterinary technicians, or have experience administering medications, and can care for pets who are medically fragile.  
 
       </p>
+      <img src="/cat-line.png" className={styles.catLineImage} />
       <img src="/dog-line.png" className={styles.dogLineImage} />
       <div className={styles.locationBox}><Locations/></div>
     </div>

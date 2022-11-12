@@ -10,7 +10,7 @@
   .contentHolder {
     position: fixed;
     width: 100%;
-    height: 50%;
+    height: 57%;
     background-color:#f6f5e8;
     opacity: 0.9;
     border: 30px solid  rgba(255, 59, 63, 0.2);
@@ -61,10 +61,17 @@
     height: 20%;
   }
   .dogLineImage {
-    width: 20%;
+    width: 30%;
     position: absolute;
-    left: 825px;
-    bottom: -50px;
+    left: 750px;
+    bottom: -70px;
+  }
+  .catLineImage {
+    width: 10%;
+    position: absolute;
+    top: 80px;
+    left: 150px;
+
   }
 
   .textHolder {
@@ -88,3 +95,5 @@
     overflow-y: scroll;
     text-align: left;
   }
+
+  

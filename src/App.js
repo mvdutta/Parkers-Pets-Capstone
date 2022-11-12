@@ -19,7 +19,7 @@ import PetView from "./components/PetView/PetView";
 import { OurTeam } from "./components/OurTeam/OurTeam";
 import ClientView from "./components/ClientView/ClientView";
 import { EmployeeAppointments } from "./components/EmployeeAppointments/EmployeeAppointments";
-import { Facts, Questions } from "./components/Questions/Questions";
+import { ContactUs } from "./components/ContactUs/ContactUs";
 //using contextAPI to create a global state accessible to all components in component tree
 export const UserContext = createContext({
   loggedIn: false,
@@ -40,7 +40,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/questions" element={<Questions />} />
+          <Route path="/contactus" element={<ContactUs />} />
           <Route path="/ourteam" element={<OurTeam />} />
           <Route path="/denied" element={<Denied />} />
           <Route path="*" element={<Page404 />} />
