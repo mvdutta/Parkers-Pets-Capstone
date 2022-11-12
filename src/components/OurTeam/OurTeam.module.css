@@ -46,4 +46,21 @@
     flex-wrap: wrap;
     gap: 100px 35px;
     margin-bottom: 100px;
+    margin-top: 100px;
 }
+
+hr {
+   border: 1px solid salmon;
+   margin-top: 125px;
+   margin-bottom: 125px;
+   margin-left: 200px;
+   margin-right: 200px;
+}
+
+
+.petGroup {
+    width: 6%;
+    position: absolute;
+    top: 225px;
+    left: 825px;
+  }

@@ -58,7 +58,7 @@ export const EmployeeProfile = () => {
         <MyCard
           title="Appointments"
           body="View past and current appointments"
-          linkTo="/"
+          linkTo="/employee/appointments"
           image="appointment.png"
         />   
       </div>

@@ -1,0 +1,38 @@
+.petGroup {
+    width: 6%;
+    position: absolute;
+    top: 225px;
+    left: 860px;
+  }
+  .contactSubHead {
+    text-align: center;
+  }
+
+  .contactIcon {
+    width: 3rem;
+    margin-left: 30px;
+  }
+
+  .contactContainer {
+    display: flex;
+    justify-content: space-evenly; 
+    margin-top: 100px;
+  }
+
+  .iconContainer {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .openIcon {
+    width: 4rem;
+    margin-left: 30px;
+  }
+  .contactgroup {
+    display: flex;   
+    align-items: center;
+  }
+  .contactText h5 {
+    font-weight: bold;
+   
+}

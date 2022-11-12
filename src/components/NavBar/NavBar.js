@@ -32,16 +32,15 @@ export const NavBar = () => {
     
   return (
     <div className={styles.navBar}>
+          <img src="/pps-logo4.png" className={styles.logo} />
         <ul >
             <li>{loggedIn && <div className={styles.navWelcome}>Welcome {currentUser.fullName}</div>}</li>
             <li><Link className={styles.navLink} to="/">Home</Link></li>
             <li><Link className={styles.navLink}to="/aboutus">About Us</Link></li>
             <li><Link className={styles.navLink} to="/ourteam">Our Team</Link></li>
-            <li><Link className={styles.navLink} to="/">FAQ</Link></li>
-            <li><Link className={styles.navLink} to="/">Contact Us</Link></li>
+            <li><Link className={styles.navLink} to="/contactus">Contact Us</Link></li>
             <li>{loggedIn && <Link className={styles.navLink}to={whichProfile}>My Dashboard</Link>}</li>
-            <li>{loggedIn && <Link className={styles.navLink}to="/" onClick={logout}>Logout</Link>}</li> 
-        
+            <li>{loggedIn && <Link className={styles.navLink}to="/" onClick={logout}>Logout</Link>}</li>  
         </ul>
     
     </div>

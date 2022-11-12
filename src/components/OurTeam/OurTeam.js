@@ -22,7 +22,7 @@ const icons = {
     "Insects and Spiders": "/spider-icon.png",
     "Fish": "/fish-icon.png",
     "Birds": "/macaw-icon.png",
-    "Rodents": "/hamster-icon.png",
+    "Rodents and Rabbits": "/hamster-icon.png",
     "Amphibians and Reptiles": "/snake-icon.png"
 } 
 
@@ -41,6 +41,8 @@ const teamCards = team.map(teamMember => (
     <>
       <NavBar />
       <h1>Meet Our Pet Sitters!</h1>
+      <hr className={styles.pageBreak}></hr>
+      <img src="/pet-line2.png" className={styles.petGroup} />
       <div className="container">
           <div className={styles.cardHolder}>
             {teamCards}
