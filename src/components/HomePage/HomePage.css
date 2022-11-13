@@ -93,7 +93,7 @@
 
 .serviceSection {
     text-align: center;
-    width: 60%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -111,14 +111,28 @@
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
+}
+.serviceIconArea:hover {
+    background-color: rgba(217, 219, 176); 
 }
 
 .serviceIcon {
     margin: 30px;
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
 }
 .serviceIconArea p {
  margin-top: -26px;
  margin-bottom: 15px;
+}
+.servicesHeader {
+    margin-bottom: 100px;
+}
+.serviceLink {
+    text-decoration: none;
+    color: rgb(66, 83, 83)
+}
+.serviceLink:hover {
+    color:  #B56357;
 }

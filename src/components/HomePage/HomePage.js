@@ -64,6 +64,13 @@ export const HomePage = () => {
         margin: "1rem",
         color: 'white',
       };
+  
+      const handleClick = (evt) => {
+        if (evt.target.id === "dogIcon") {
+            navigate("/dogservices")
+        }
+        
+    }
   return (<>
     <div>
         <NavBar/>
@@ -94,18 +101,24 @@ export const HomePage = () => {
         <h1 className='servicesHeader'>Our Services</h1>  
         <h2>We offer daily pet sitting in your home with simple and straightfoward pricing.</h2>
         <div className='servicesContent'>
-            <div className='serviceIconArea'>
-                <img src="/poodle-icon.png" className='serviceIcon' />
-                <p>Dogs</p>
-            </div>
-            <div className='serviceIconArea'>
-                <img src="/cat-icon2.png" className='serviceIcon'/>
-                <p>Cats</p>
-            </div>
-            <div className='serviceIconArea'>
-                <img src="/fish-icon.png" className='serviceIcon'/>
-                <p>Other Pets</p>
-            </div>
+            <Link to= "/dogservices" className="serviceLink">
+                <div className='serviceIconArea' >
+                    <img src="/poodle-icon.png" className='serviceIcon'/>
+                    <p>Dogs</p>
+                </div>
+            </Link>
+            <Link to= "/catservices" className="serviceLink">
+                <div className='serviceIconArea'>
+                    <img src="/cat-icon2.png" className='serviceIcon'/>
+                    <p>Cats</p>
+                </div>
+            </Link>
+            <Link to="/otherpetservices" className="serviceLink">
+                <div className='serviceIconArea'>
+                    <img src="/hamster-icon.png" className='serviceIcon'/>
+                    <p>Other Pets</p>
+                </div>
+            </Link>
         </div>
         </div>      
     </div>
