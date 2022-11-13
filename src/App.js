@@ -22,7 +22,7 @@ import { EmployeeAppointments } from "./components/EmployeeAppointments/Employee
 import { ContactUs } from "./components/ContactUs/ContactUs";
 import { DogServices } from "./components/DogServices/DogServices";
 import { CatServices } from "./components/CatServices/CatServices";
-import { OtherPetServices } from "./components/DogServices/OtherPetServices/OtherPetServices";
+import { OtherPetServices } from "./components/OtherPetServices/OtherPetServices";
 //using contextAPI to create a global state accessible to all components in component tree
 export const UserContext = createContext({
   loggedIn: false,
