@@ -54,7 +54,7 @@ export const CatServices = () => {
           </div>
           <div className={styles.textArea}>
             <h3>Extended Visit</h3>
-            <h4>45 minute: $55.00 per visit</h4>
+            <h4>45 minute: $45.00 per visit</h4>
             <h4>Purrfect bottle fed kittens, shy or anxious cats, and medically fragile cats:</h4>
             <ul>
               <li>Choose one or two visits per day</li>

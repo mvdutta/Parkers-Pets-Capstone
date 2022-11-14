@@ -1,17 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import styles from "./OtherPetServices.module.css";
 
 export const OtherPetServices = () => {
+  const navigate = useNavigate()
   return (
     <>
       <NavBar />
       <h1>Other Pet Services</h1>
-      <hr className={styles.pageBreak}></hr>
+      <hr className={styles.pageDivider}></hr>
       <img src="/parrot-image1.png" className={styles.petGroup} />
+      <div className={styles.buttonContainer}>
+      <button className={styles.backButton} onClick={()=> {navigate(-1)}}>Go Back</button>
+      </div>
+      <div>
       <h2 className={styles.serviceInfo}>We love all pets and provide each one with the love and care they deserve when you're away.</h2>
       <h2 className={styles.serviceTypes}> Currently, we can provide excellent care for insects/spiders, amphibians/reptiles, rodents/rabbits, birds, and fish.</h2>
       <h2 className={styles.serviceSubheader}>Choose the flat-rate plan that's best for your pet. </h2>
+      </div>
       <div className={styles.serviceContainer}>
         <div className={styles.catArea}>
           <div className={styles.imageArea}>
@@ -54,7 +61,7 @@ export const OtherPetServices = () => {
           </div>
           <div className={styles.textArea}>
             <h3>Extended Visit</h3>
-            <h4>45 minute: $55.00 per visit</h4>
+            <h4>45 minute: $45.00 per visit</h4>
             <h4>Recommended for large birds, medically fragile pets, or for some basic saltwater aquariums</h4>
             <ul>
               <li>Choose one or two visits per day</li>
