@@ -61,7 +61,7 @@ export const DogServices = () => {
               <li>Choose one or two visits per day</li>
               <li>Includes all care listed in our Basic and Standard visit</li>
               <li>Great for dogs that may need more time to finish a meal or go potty</li>
-              <li>Bath, brushing, nail trimming, and plant watering upon request</li>
+              <li>Bathing, brushing, nail trimming, and plant watering upon request</li>
               <li>Essential for bottle feeding puppies and basic house training</li>
             </ul>
           </div>
