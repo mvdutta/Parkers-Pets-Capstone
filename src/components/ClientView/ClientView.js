@@ -40,7 +40,7 @@ export const ClientView = () => {
     <>
       <NavBar/>
         <div className='container'> 
-        <button className='btn btn-primary' onClick={()=>{navigate("/employee/appointments")}}>Apointments</button>
+        <button className='btn btn-primary' onClick={()=>{navigate("/employee/appointments")}}>Appointments</button>
             <h1>{clientUser.user.fullName}</h1>
             <table className='table w-50'>
             <tbody>

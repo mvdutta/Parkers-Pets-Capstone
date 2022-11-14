@@ -65,7 +65,7 @@ export const EmployeeView = () => {
                         </tr>
                     </tbody>
                     </table>
-                    <h3>{employee.user.fullName} {employee.medications===0?"cannot":"can"} deliver medications</h3>
+                    <h5>{employee.user.fullName} {employee.medications===0?"cannot":"can"} deliver medications/care for sick pets</h5>
                 </div>
 
             

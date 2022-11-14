@@ -1,0 +1,44 @@
+.apptTable {
+    font-family: 'Josefin Sans', sans-serif;
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    color: rgb(66, 83, 83);
+}
+
+.deleteButton {
+    background-color: #B56357;
+    padding-top: 6px;
+    color: white;
+	font-size: 13px;
+	text-align: center;
+	font-style: normal;
+    border-radius: 7px;
+	border: gray;
+    cursor: pointer;
+	box-shadow: 1px 1px 2px 1px rgba(0,0,0,.5);
+}
+.deleteButton:hover {
+    background: #efb9b1;
+    color: black;
+}
+.apptButton {
+    background-color: rgb(118, 119, 86);
+	text-decoration: none;
+	border: 1px solid grey;
+	color: white;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,.5);
+}
+.apptButton:hover {
+    background-color: rgb(228, 228, 164);
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
+}
+.apptLink {
+    color:  #B56357;
+}
+.apptLink:hover {
+    color: rgb(66, 83, 83);
+}

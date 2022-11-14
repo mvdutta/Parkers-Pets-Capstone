@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { NavBar } from '../NavBar/NavBar'
+import styles from './ClientAppointments.module.css'
 
 export const ClientAppointments = () => {
 
@@ -56,11 +57,11 @@ export const ClientAppointments = () => {
         <td>{appt.startDate}</td>
         <td>{appt.endDate}</td>
         <td>{appt.service.serviceName}</td>
-        <td><Link to={`/petform/${appt.pet.id}`}>{appt.pet.name}</Link></td>
-        <td><Link to={`/client/employeeview/${employeeUser.id}`}>{employeeUser.user.fullName}</Link></td>
+        <td><Link className={styles.apptLink} to={`/petform/${appt.pet.id}`}>{appt.pet.name}</Link></td>
+        <td><Link className={styles.apptLink} to={`/client/employeeview/${employeeUser.id}`}>{employeeUser.user.fullName}</Link></td>
     
         <td>{employeeUser.user.phone}</td>
-        <td><button type="button" className="btn btn-sm btn-danger" onClick={()=>{handleDelete(appt.id)}}>Delete</button></td>
+        <td><button type="button" className={`btn btn-sm btn-outline-light ${styles.deleteButton}`} onClick={()=>{handleDelete(appt.id)}}>Delete</button></td>
         </tr>:<tr><td>No appointments found</td></tr>
         )
     })
@@ -73,14 +74,14 @@ export const ClientAppointments = () => {
         <h1>Hello {currentUser.fullName}</h1>
         <h2>Your Appointments</h2>
         {appointments.length>0 ?
-        <table className='table'>
+        <table className={`table ${styles.apptTable}`}>
             <thead>
                 <tr>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Service</th>
                     <th>Pet</th>
-                    <th>Petsitter</th>
+                    <th>Pet Sitter</th>
                     <th>Phone</th>
                     <td></td>
                 </tr>
@@ -89,7 +90,7 @@ export const ClientAppointments = () => {
         {apptlist}
         </tbody>
         </table>:<p>You currently do not have any appointments</p>}
-        <button className='btn btn-primary' onClick={()=>{navigate("/client/appointment")}}>Make Appointment</button>
+        <button className={`btn btn-outline-light ${styles.apptButton}`}onClick={()=>{navigate("/client/appointment")}}>Make New Appointment</button>
     </div>
     </>
   )
