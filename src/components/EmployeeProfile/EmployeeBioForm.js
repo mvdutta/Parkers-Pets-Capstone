@@ -279,7 +279,7 @@ export const EmployeeBioForm = () => {
                         </select>
                         <div className="d-flex justify-content-between">
                             <label htmlFor="phone">Zip Codes I Serve</label>
-                            <Button variant="info" onClick={handleShow}>
+                            <Button className={styles.zipButton}variant="outline-light" onClick={handleShow}>
                                 View Locations
                             </Button>
                             <Modal

@@ -71,7 +71,7 @@ export const ClientProfile = () => {
                 navigate("/")
             })
         }} 
-    >Delete Profile</button>
+    >Delete Account</button>
     </div>
   );
 };

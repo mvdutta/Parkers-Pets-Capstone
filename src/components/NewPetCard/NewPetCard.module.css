@@ -2,14 +2,17 @@
 
 .myCard {
     width: 18rem;
-    text-align: center;
     border: 1px solid #B56357;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
 }
+.myCard:hover {
+    background-color: rgba(217, 219, 176, 0.5); 
+
+}
 .profileImage {
   display: block;
-  width: 15rem;
-  height: 14rem;
+  width: 12rem;
+  height: 12rem;
   object-fit: cover;
   margin-top: 1rem;
   margin-left: auto;
@@ -39,8 +42,15 @@
 }
 .cardText {
     margin-top: -10px;
+    margin-bottom: -8px;
 }
-
+.cardBody {
+    margin-left: 13px;
+    font-weight: 500;
+}
+.cardBody h5 {
+    font-weight: 700;
+}
 .cardHolder{
     display: flex;
     flex-wrap: wrap;
@@ -48,6 +58,7 @@
     margin-bottom: 100px;
     margin-top: 100px;
 }
+
 
 hr {
    border: 1px solid salmon;

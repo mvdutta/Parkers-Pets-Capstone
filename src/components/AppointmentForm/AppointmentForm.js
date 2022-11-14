@@ -98,7 +98,7 @@ export const AppointmentForm = () => {
           filteredSitterData = sitterData.filter(el =>(el.employee.medications===1 && parseInt(el.employee.petTypeId) === parseInt(selectedPet.petTypeId)))
         }
         if (filteredSitterData.length===0){
-          window.alert("No pet sitters were found matching these criteria. Sorry!")
+          window.alert("No pet sitters were found matching these criteria. Please Contact Us")
           return
         }
         filteredSitterData.forEach((el) => {
@@ -189,7 +189,7 @@ export const AppointmentForm = () => {
         <>
             <NavBar />
             <div className="container">
-                <h1>Make a petsitting appointment</h1>
+                <h1>Make a Pet Sitting Appointment</h1>
                 <div className="row my-4">
                     <Form className="my-4">
                         <Form.Group className="mb-3" controlId="pet">

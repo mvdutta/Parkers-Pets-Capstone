@@ -64,3 +64,9 @@ hr {
     top: 233px;
     left: 895px;
   }
+  .cardBody {
+    font-weight: 600;
+  }
+  .cardBody h5 {
+    font-weight: 800;
+  }

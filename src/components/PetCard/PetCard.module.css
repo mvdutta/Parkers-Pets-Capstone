@@ -33,21 +33,20 @@
     font-size: 14px;
     border-radius: 7px;
     background-color: #B56357;
-    border: none;
+    border: 1px solid grey;
     color: white;
     width: 25%; 
     cursor: pointer;
-    box-shadow: 2px 2px 10px 1px rgba(0,0,0,.3);
+
 }
 .detailButton {
     margin-top: 20px;
     padding: 5px;
     font-size: 14px;
     border-radius: 7px;
-    border: none;
+    border: 1px solid grey;
     width: 25%; 
     cursor: pointer;
-    box-shadow: 2px 2px 10px 1px rgba(0,0,0,.3);
     background-color: rgb(118, 119, 86);
     color: white;
     margin-right: 110px;
