@@ -1,14 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import styles from "./CatServices.module.css";
 
 export const CatServices = () => {
+    const navigate = useNavigate()
   return (
     <>
       <NavBar />
       <h1>Cat Services</h1>
-      <hr className={styles.pageBreak}></hr>
+      <hr className={styles.pageDivider}></hr>
       <img src="/cat-image1.png" className={styles.petGroup} />
+      <div className={styles.buttonContainer}>
+      <button className={styles.backButton} onClick={()=> {navigate(-1)}}>Go Back</button>
+      </div>
       <h2 className={styles.serviceSubheader}>Choose the flat-rate plan that's best for your cat. </h2>
       <div className={styles.serviceContainer}>
         <div className={styles.catArea}>

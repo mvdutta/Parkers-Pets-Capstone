@@ -39,7 +39,7 @@ export const OtherPetServices = () => {
         </div>
         <div className={styles.catArea}>
           <div className={styles.imageArea}>
-            <img src="/rabbit.jpeg" className={styles.catImage} />
+            <img src="/rabbit2.jpeg" className={styles.catImage} />
           </div>
           <div className={styles.textArea}>
             <h3>Standard Visit</h3>
