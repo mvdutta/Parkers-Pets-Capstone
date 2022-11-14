@@ -41,7 +41,7 @@ export const ClientAppointments = () => {
       }, []);
 
       const handleDelete = (id) =>{
-        window.alert("Are you sure you want to delete "+id)
+        window.alert("Are you sure you want to delete this appointment?")
         fetch(`http://localhost:8088/appointments/${id}`, {method:"DELETE"})
         .then(()=>{
             setAppointments(x=>x.filter(el=>el.id!==id))
