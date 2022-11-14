@@ -1,0 +1,8 @@
+.selectedStyle{
+    transform: scale(1.05,1.05);
+}
+
+
+.cardImgTop {
+    height: 100%;
+}

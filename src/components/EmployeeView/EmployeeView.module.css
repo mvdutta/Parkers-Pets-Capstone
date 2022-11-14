@@ -1,0 +1,8 @@
+.imgholder{
+    display: flex;
+    justify-content: center;
+}
+
+.imgholder img{
+    width:250px;
+}

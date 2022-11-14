@@ -1,12 +1,8 @@
-.imageholder{
-    width: 300px
+.imgholder{
+    display: flex;
+    justify-content: left;
 }
 
-table{
-    margin-top: 20px;
+.imgholder img{
+    width:250px;
 }
-
-table, th, td {
-    border:1px solid black;
-    padding: 2px;
-  }

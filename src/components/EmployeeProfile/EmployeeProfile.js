@@ -14,7 +14,7 @@ export const EmployeeProfile = () => {
     phone: "",
     role: "",
   });
-  const {loggedIn, setLoggedIn} = useContext(UserContext)
+  const {setLoggedIn} = useContext(UserContext)
   const localParkerUser = localStorage.getItem("parker_user")
   const parkerUserObject = JSON.parse(localParkerUser)
   const navigate = useNavigate()
@@ -48,12 +48,6 @@ export const EmployeeProfile = () => {
           body="Create and update your bio and services"
           linkTo="/employeebioform"
           image="script.png"
-        />
-        <MyCard
-          title="My Clients"
-          body="View and edit your client's details"
-          linkTo="/aboutus"
-          image="clientLogo.png"
         />
         <MyCard
           title="Appointments"

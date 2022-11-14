@@ -33,7 +33,7 @@ export const EmployeeAppointments = () => {
           navigate("/denied")
         }
         setCurrentUser(parkerUserObject);
-        fetch(`http://localhost:8088/appointments?employee_Id=${parkerUserObject.id}&sort=date&_order=desc`)
+        fetch(`http://localhost:8088/appointments?employee_Id=${parkerUserObject.id}&_expand=pet&_expand=service&sort=date&_order=desc`)
         .then(res=>res.json())
         .then(data =>{
             setAppointments(data)
@@ -45,9 +45,12 @@ export const EmployeeAppointments = () => {
         console.log(clientUser)
         return(
         clientUser?<tr key={`appts--${i}`}>
-        <td>{appt.date}</td>
-        <td>{appt.time}</td>
+        <td>{appt.startDate}</td>
+        <td>{appt.endDate}</td>
+        <td><Link to={`/employee/petview/${appt.pet.id}`}>{appt.pet.name}</Link></td>
+        <td>{appt.service.serviceName}</td>
         <td>{clientUser.user.fullName}</td>
+        <td>{clientUser.user.phone}</td>
         <td>{clientUser.user.streetAddress}, Nashville, TN-{clientUser.user.zipCode}</td>
         <td><Link to={`/employee/clientview/${appt.client_Id}`}>View Client Details</Link></td>
         </tr>:<tr><td>No appointments found</td></tr>
@@ -61,7 +64,19 @@ export const EmployeeAppointments = () => {
     <div className="container">
         <h1>Hello {currentUser.fullName}</h1>
         <h2>Your Appointments</h2>
-        {appointments.length>0?<table>
+        {appointments.length>0?<table className='table'>
+          <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Pet Name</th>
+                    <th>Service</th>
+                    <th>Client Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th></th>
+                </tr>
+            </thead>
         <tbody>
         {apptlist}
         </tbody>

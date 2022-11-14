@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './ClientView.module.css'
 
-const ClientView = () => {
+export const ClientView = () => {
     const { clientId } = useParams();
     const [pets, setPets] = useState([])
 
@@ -13,6 +13,8 @@ const ClientView = () => {
         userId: "",
         user:{}
       })
+
+    const navigate = useNavigate()
 
     useEffect(()=>{
         fetch(`http://localhost:8088/clients?userId=${clientId}&_expand=user`)
@@ -38,19 +40,10 @@ const ClientView = () => {
     <>
       <NavBar/>
         <div className='container'> 
-            <table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Client Details</th>
-                </tr>
-
-                </thead>
+        <button className='btn btn-primary' onClick={()=>{navigate("/employee/appointments")}}>Apointments</button>
+            <h1>{clientUser.user.fullName}</h1>
+            <table className='table w-50'>
             <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td>{clientUser.user.fullName}</td>
-                </tr>
                 <tr>
                     <td>Email</td>
                     <td>{clientUser.user.email}</td>
@@ -59,8 +52,10 @@ const ClientView = () => {
                     <td>Address</td>
                     <td>{clientUser.user.streetAddress}, Nashville, TN-{clientUser.user.zipCode}</td>
                 </tr>
-
-
+                <tr>
+                    <td>Phone</td>
+                    <td>{clientUser.user.phone}</td>
+                </tr>
             </tbody>
             </table> 
             <h3>{clientUser.user.fullName}'s Pets</h3>
@@ -74,4 +69,3 @@ const ClientView = () => {
   )
 }
 
-export default ClientView

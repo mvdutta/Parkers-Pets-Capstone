@@ -62,17 +62,26 @@ export const PetForm = () => {
   });
   const handleSaveButtonClick = (clickEvent) => {
     clickEvent.preventDefault();
+    if (pet.petTypeId==="") {
+      window.alert("Please pick a pet type for your pet")
+      return
+    }
+    if (isNaN(pet.age)){
+      window.alert("Please enter a number for age")
+      return
+    }
     if (pet.id) {
       return fetch(`http://localhost:8088/pets/${pet.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(pet),
+        body: JSON.stringify({...pet, age: parseInt(pet.age)}),
       })
         .then((res) => res.json())
         .then(() => {
           window.alert(`${pet.name}'s data has been saved!`);
+          navigate("/petlist")
         });
     } else {
       fetch(`http://localhost:8088/pets`, {
@@ -80,10 +89,13 @@ export const PetForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(pet),
+        body: JSON.stringify({...pet, age: parseInt(pet.age)}),
       })
         .then((res) => res.json())
-        .then(navigate("/petlist"));
+        .then(()=>{
+          window.alert(`${pet.name} has been created!`)
+          navigate("/petlist")
+        })
     }
   };
 
@@ -112,7 +124,7 @@ export const PetForm = () => {
             />
             <label htmlFor="Age">Age</label>
             <input
-              type="number"
+              type="text"
               id="age"
               name="field2"
               required
@@ -143,10 +155,16 @@ export const PetForm = () => {
               value={pet.petTypeId}
               onChange={(evt) => {
                 const copy = { ...pet };
-                copy.petTypeId = evt.target.value;
+                copy.petTypeId = +evt.target.value;
                 setPet(copy);
               }}
             >
+                    <option
+        key={"00"}
+        value={""}
+      >
+        Choose a pet type
+      </option>
               {petOptions}
             </select>
             <label htmlFor="Breed">Breed or Description</label>

@@ -48,6 +48,17 @@ export const Register = (props) => {
             })
         })
 
+                }else {
+                    fetch("http://localhost:8088/clients", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            userId:createdUser.id,
+                        })
+
+                    })
                 }
             }).then(()=>{
                 const whichProfile = user.role===0? "/employeeprofile":"/clientprofile"

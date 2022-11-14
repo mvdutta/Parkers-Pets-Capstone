@@ -44,23 +44,15 @@ const PetView = () => {
   return (
     <>
         <NavBar/>
-        <Link to={`/employee/clientview/${pet.client_Id}`}>Back to Client</Link>
-        <div>
-            <div className={styles["imageholder"]}><img src={pet.image} alt=""></img></div>
-            <table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Pet Details</th>
-                </tr>
-
-                </thead>
-            <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td>{pet.name}</td>
-                </tr>
-                <tr>
+        <div className="container">
+            <h1>{pet.name}</h1>
+            <div className={styles.imgholder}>
+                <img src={pet.image}  className="img-fluid" alt="employee"/>
+            </div>
+            <div className="d-flex flex-column justify-content-left">
+                    <table className='table w-50'>
+                    <tbody>
+                    <tr>
                     <td>Age</td>
                     <td>{pet.age}</td>
                 </tr>
@@ -92,9 +84,13 @@ const PetView = () => {
                     <td>Vet Information</td>
                     <td>{pet.vetInfo}</td>
                 </tr>
-            </tbody>
-            </table> 
+                    </tbody>
+                    </table>
+                </div>
+                <button className="btn btn-primary" onClick={() => navigate(-1)}>Go back</button>
+
         </div>
+        
     </>
   )
 }

@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import { PetCard } from "../PetCard/PetCard";
 import styles from "./pets.module.css";
 
 export const PetList = () => {
   const [pets, setPets] = useState([]);
+  const navigate = useNavigate()
 
-  const localParkerUser = localStorage.getItem("parker_user");
-  const parkerUserObject = JSON.parse(localParkerUser);
+
 
   useEffect(() => {
+    const localParkerUser = localStorage.getItem("parker_user");
+    const parkerUserObject = JSON.parse(localParkerUser);
     fetch(`http://localhost:8088/pets?client_Id=${parkerUserObject.id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -42,8 +44,9 @@ export const PetList = () => {
       name={pet.name}
       breed={pet.breedSpecies}
       age={pet.age}
-      linkTo="/clientprofileform"
       image={pet.image}
+      pets = {pets}
+      setPets = {setPets}
     />
   ));
 
@@ -54,7 +57,7 @@ export const PetList = () => {
         <div className={styles.welcomeMessage}>
           Your Pet(s): <span className={styles.petName}>{petNamelist}</span>
           <div className={styles.addPetLink}>
-           <button className={styles.newPetButton}><Link className={styles.newPetLink} to="/petform"> Add A Pet</Link></button></div>
+           <button className={styles.newPetButton} onClick={()=>{navigate("/petform")}}> Add A Pet</button></div>
         </div>
       </div>
 

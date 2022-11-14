@@ -54,7 +54,7 @@ export const ClientProfile = () => {
         <MyCard
           title="Appointments"
           body="View past and current appointments"
-          linkTo="/"
+          linkTo="/client/appointments"
           image="appointment.png"
         />
       </div>
