@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
+import { NewPetCard } from "../NewPetCard/NewPetCard";
 import { PetCard } from "../PetCard/PetCard";
 import styles from "./pets.module.css";
 
@@ -38,7 +39,7 @@ export const PetList = () => {
 
   const petNamelist = makeNameString(pets.map((pet) => pet.name));
   const petCards = pets.map((pet) => (
-    <PetCard
+    <NewPetCard
       key={pet.id}
       id={pet.id}
       name={pet.name}
