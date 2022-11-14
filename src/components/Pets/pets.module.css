@@ -51,15 +51,12 @@
     font-weight: 300;
   }
 
-  .addPetLink {
-    margin-top: 25px;
-    font-size: 25px;
-    color: rgba(255, 59, 63, 0.5);
-  }
-
   .newPetLink {
       text-decoration: none;
       color: white;
+  }
+  .newPetLink:hover {
+    color: white
   }
   .newPetButton {
 	  display: block;

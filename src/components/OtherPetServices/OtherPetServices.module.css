@@ -1,0 +1,70 @@
+.petGroup {
+    width: 6%;
+    position: absolute;
+    top: 215px;
+    left: 900px;
+  }
+  .pageDivider {
+    margin-bottom: 0;
+  }
+
+  .catImage {
+    width: 80%;
+    height: 80%;
+    border: 1px solid #8b5e57;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+    border-radius: 8%;
+
+  }
+  .catArea {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+  }
+  .imageArea {
+    width:  400px;
+    height: 400px;
+    margin-left: 10%;
+  }
+
+  .textArea {
+    flex-basis: 50%;
+    font-size: 20px;
+    margin-left: -50px;
+  }
+  .serviceContainer {
+    width: 65%;
+  }
+  .italicize {
+    font-style: italic;
+    font-size: 25px;
+  }
+  
+  .serviceSubheader {
+    margin-left: 125px;
+    margin-bottom: 100px;
+  }
+  .serviceInfo {
+   margin-left: 125px;
+   margin-top: 50px;
+  }
+  .serviceTypes {
+    margin-left: 125px;
+    margin-bottom: 50px;
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 200px;
+  }
+  .backButton {
+    border: none;
+    background-color: #B56357;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+    width: 75px;
+    font-size: 16px;
+  }

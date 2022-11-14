@@ -21,6 +21,9 @@
     font-family: 'Josefin Sans', sans-serif;
     margin-left: 60px;
 }
+.navLink:hover {
+    color: #B56357;
+}
 .navWelcome {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
