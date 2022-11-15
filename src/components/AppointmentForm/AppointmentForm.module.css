@@ -2,10 +2,18 @@
     transform: scale(1.05,1.05);
 }
 
-
 .cardImgTop {
-    height: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    border: 3px solid #8b5e57;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
 }
+
 
 .findButton {
     background-color: rgb(118, 119, 86);
@@ -24,7 +32,8 @@
 .clearButton {
     background-color: #B56357;
 	border: 1px solid grey;
-	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+    color: white;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,.5);
 	text-decoration: none;
     margin-top: 10px;
 }
@@ -42,6 +51,7 @@
 }
 .formHolder {
     width: 40%;
+    margin-left: -100px;
 }
 .optionText {
     font-family: 'Roboto Condensed', sans-serif;
@@ -55,4 +65,58 @@
 .dateChange:hover {
     background-color: #e8e7df;
 }
+.matchText {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 23px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.cardTitle {
+    text-align: center;
+    font-weight: 600;
+}
+.detailsButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    background-color: rgb(118, 119, 86);
+	border: 1px solid grey;
+	text-decoration: none;
+    margin-top: 10px;   
+}
+.detailsButton:hover {
+    background-color: rgb(228, 228, 164);
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
+}
+.cardBody {
+    width: 18rem;
+    text-align: center;
+    border: 1px solid #B56357;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+    margin-bottom: 20px;
+}
+
+.checkBox label {
+    font-weight: 600;
+}
+.submitButton {
+    margin-bottom: 100px;
+    display: block;
+    margin-top: 20px;
+    background-color: rgb(118, 119, 86);
+	text-decoration: none;
+    margin-top: 10px;   
+    margin-left: -5px;
+    font-size: 18px;
+}
+.submitButton:hover {
+    background-color: rgb(212, 212, 134);
+	text-decoration: none;
+}
+
+
 

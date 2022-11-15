@@ -11,11 +11,12 @@ export const SmallCard = ({imageLink, name, email, phone, bio, medications}) => 
     const handleShow = () => setShow(true);
 
   return (
-    <Card style={{ width: '15rem'}} className="h-100">
+    <Card style={{ width: '15rem'}} className={`h-100 ${styles.cardBody}`}>
       <Card.Img variant="top" src={imageLink} className={styles.cardImgTop}/>
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Button variant="primary" onClick={handleShow}>
+        <Card.Title className={styles.cardTitle}>{name}</Card.Title>
+        <Button className={styles.detailsButton}variant="outline-light" 
+        onClick={handleShow}>
         Details
       </Button>
       </Card.Body>

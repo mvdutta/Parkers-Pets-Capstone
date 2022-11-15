@@ -184,6 +184,7 @@ export const AppointmentForm = () => {
         type="checkbox"
         label={`Select ${el.employee.fullName}`}
         checked={el.employeeId === appointment.employee_Id}
+        className={styles.checkBox}
         onChange={(e) => {
           if (e.currentTarget.checked) {
             const appointmentCopy = {
@@ -280,11 +281,13 @@ export const AppointmentForm = () => {
               </Button>
             </ButtonToolbar>
             {sitters.length > 0 && (
-              <div className="mt-4">
+              <div className='mt-4' >
                 <Form.Group className="mb-3" controlId="sitter">
-                  <Form.Label>
-                    The following petsitters match your selections
+                  <div className={styles.holder}>
+                  <Form.Label className={styles.matchText}>
+                    The following pet sitters match your selections:
                   </Form.Label>
+                  </div>
                   <div className="d-flex flex-wrap gap-3">{foundSitters}</div>
                 </Form.Group>
               </div>
@@ -295,7 +298,8 @@ export const AppointmentForm = () => {
           {sitters.length !== 0 && (
             <div>
               <Button
-                variant="primary"
+                variant="outline-light"
+                className={styles.submitButton}
                 type="submit"
                 disabled={appointment.employee_Id === 0}
                 onClick={handleSubmit}
