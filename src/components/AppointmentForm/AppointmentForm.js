@@ -80,8 +80,6 @@ export const AppointmentForm = () => {
 
   const handleSearch = async () => {
     const clientZip = clientUser.user.zipCode;
-    console.log(clientZip);
-    console.log(ZIPDATA[clientZip]);
     const selectedPet = pets.find((pet) => pet.id === appointment.petId);
     const fetches = [
       fetch(
@@ -90,7 +88,6 @@ export const AppointmentForm = () => {
       fetch("http://localhost:8088/users").then((res) => res.json()),
     ];
     const [sitterData, userData] = await Promise.all(fetches);
-    console.log(sitterData);
     let filteredSitterData = [];
     if (selectedPet.medications === 0) {
       filteredSitterData = sitterData.filter(

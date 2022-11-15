@@ -1,8 +1,40 @@
-table{
-    margin:20px 0;
+.clientTable {
+    width: 33%;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #8b5e57;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+.clientTable td{
+    border: 1px solid #8b5e57;
+}
+.tableRow {
+    font-weight: bold;
+    font-size: 20px;
 }
 
-table, th, td {
-    border:1px solid black;
-    padding: 2px;
+
+  .backButton {
+    background-color: rgb(118, 119, 86);
+	text-decoration: none;
+	border: 1px solid grey;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
   }
+  .backButton:hover {
+	background-color: rgb(228, 228, 164);
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
+}
+.listHolder {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
+}

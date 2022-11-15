@@ -46,7 +46,6 @@ const PetView = () => {
           fetch(`http://localhost:8088/pets/${petId}?_expand=petType`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
               const petCopy = { ...pet, ...data };
               setPet(petCopy);
             });
@@ -61,8 +60,9 @@ const PetView = () => {
                 <img src={pet.image}  className="img-fluid" alt="employee"/>
             </div>
             <div className="d-flex flex-column justify-content-left">
-                    <table className='table w-50'>
+                    <table className={styles.petTable}>
                     <tbody>
+                        <tr className={styles.tableRow}><th>{pet.name}'s Details</th></tr>
                     <tr>
                     <td>Age</td>
                     <td>{pet.age}</td>
@@ -98,7 +98,7 @@ const PetView = () => {
                     </tbody>
                     </table>
                 </div>
-                <button className="btn btn-primary" onClick={() => navigate(-1)}>Go back</button>
+                <button className={`btn btn-outline-light ${styles.backButton}`} onClick={() => navigate(-1)}>Go back</button>
 
         </div>
         
