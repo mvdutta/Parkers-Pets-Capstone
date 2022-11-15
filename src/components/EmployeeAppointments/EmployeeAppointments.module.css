@@ -1,0 +1,14 @@
+.apptLink {
+    color:  #B56357;
+}
+.apptLink:hover {
+    color: rgb(66, 83, 83);
+}
+.apptTable {
+    font-family: 'Josefin Sans', sans-serif;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 17px;
+    color: rgb(66, 83, 83);
+}

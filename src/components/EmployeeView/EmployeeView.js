@@ -33,22 +33,22 @@ export const EmployeeView = () => {
     <>
       <NavBar/>
         <div className='container'> 
+        <h1>Your Pet Sitter</h1>
 
-             <h1>{employee.user.fullName}</h1>
+             <h3>{employee.user.fullName}</h3>
 
         <div className={styles.imgholder}>
             <img src={employee.profileImage}  className="img-fluid" alt="employee"/>
         </div>
 
-        <div className="card mt-4">
-            <div className="card-body">
+            <div className= {styles.bioHolder}>
                 <h5 className="card-title">{employee.user.fullName}'s Bio</h5>
-                <p className="card-text">{employee.biography}</p>
+                <p className={styles.cardText}>{employee.biography}</p>
             </div>
-        </div>
+        
 
 
-                <div className="d-flex flex-column justify-content-left">
+                <div className={`d-flex flex-column justify-content-left ${styles.empTable}`}>
                     <table className='table w-25'>
                     <tbody>
                         <tr>
@@ -65,11 +65,11 @@ export const EmployeeView = () => {
                         </tr>
                     </tbody>
                     </table>
-                    <h5>{employee.user.fullName} {employee.medications===0?"cannot":"can"} deliver medications/care for sick pets</h5>
+                    <p>*{employee.user.fullName} {employee.medications===0?"cannot":"can"} deliver medications/care for sick pets</p>
                 </div>
 
             
-        <button className='btn btn-primary' onClick={()=>{navigate(-1)}}>Back</button>
+        <button className={`btn btn-outline-light ${styles.backButton}`} onClick={()=>{navigate(-1)}}>Go Back</button>
         </div>
     </>
   )

@@ -239,8 +239,11 @@ export const PetForm = () => {
             </div>
           </fieldset>
 
-          <input type="submit" value="Save Changes" />
+         <input type="submit" value="Save Changes" />   
         </form>
+        <div>
+        <button className={`btn btn-outline-light ${styles.backButton}`} onClick={()=>{navigate(-1)}}>Go Back</button>
+        </div>
       </div>
     </>
   );

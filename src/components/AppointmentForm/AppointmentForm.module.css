@@ -6,3 +6,53 @@
 .cardImgTop {
     height: 100%;
 }
+
+.findButton {
+    background-color: rgb(118, 119, 86);
+	text-decoration: none;
+	border: 1px solid grey;
+	color: white;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,.5);
+    margin-top: 10px;
+}
+.findButton:hover {
+    background-color: rgb(228, 228, 164);
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
+}
+.clearButton {
+    background-color: #B56357;
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
+    margin-top: 10px;
+}
+.clearButton:hover {
+    background-color: #efb9b1;
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;  
+}
+.apptText {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+.formHolder {
+    width: 40%;
+}
+.optionText {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: rgb(66, 83, 83);
+    
+}
+.optionText:hover {
+    background-color: #e8e7df;
+}
+
+.dateChange:hover {
+    background-color: #e8e7df;
+}
+

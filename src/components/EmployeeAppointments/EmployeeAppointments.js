@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { NavBar } from '../NavBar/NavBar'
+import styles from './EmployeeAppointments.module.css'
 
 export const EmployeeAppointments = () => {
 
@@ -47,12 +48,12 @@ export const EmployeeAppointments = () => {
         clientUser?<tr key={`appts--${i}`}>
         <td>{appt.startDate}</td>
         <td>{appt.endDate}</td>
-        <td><Link to={`/employee/petview/${appt.pet.id}`}>{appt.pet.name}</Link></td>
+        <td><Link className={styles.apptLink} to={`/employee/petview/${appt.pet.id}`}>{appt.pet.name}</Link></td>
         <td>{appt.service.serviceName}</td>
         <td>{clientUser.user.fullName}</td>
         <td>{clientUser.user.phone}</td>
         <td>{clientUser.user.streetAddress}, Nashville, TN-{clientUser.user.zipCode}</td>
-        <td><Link to={`/employee/clientview/${appt.client_Id}`}>View Client Details</Link></td>
+        <td><Link className={styles.apptLink} to={`/employee/clientview/${appt.client_Id}`}>View Client Details</Link></td>
         </tr>:<tr><td>No appointments found</td></tr>
         )
     })
@@ -64,7 +65,7 @@ export const EmployeeAppointments = () => {
     <div className="container">
         <h1>Hello {currentUser.fullName}</h1>
         <h2>Your Appointments</h2>
-        {appointments.length>0?<table className='table'>
+        {appointments.length>0?<table className={`table ${styles.apptTable}`} >
           <thead>
                 <tr>
                     <th>Start Date</th>
