@@ -33,7 +33,7 @@ export const ClientView = () => {
     },[])
 
     const petList = pets.map(el=><span key={el.id}>
-        <Link to={`/employee/petview/${el.id}`}>{el.name}</Link>{",  "}
+        <Link className={styles.petLink} to={`/employee/petview/${el.id}`}>{el.name}</Link>{",  "}
     </span>)
 
   return (

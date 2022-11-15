@@ -32,9 +32,9 @@
 	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
 	text-decoration: none;
 }
-.listHolder {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 100px;
+.petLink {
+    color:  #B56357;
+}
+.petLink:hover {
+    color: rgb(66, 83, 83);
 }
