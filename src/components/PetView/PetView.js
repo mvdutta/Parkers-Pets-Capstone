@@ -3,6 +3,16 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { NavBar } from "../NavBar/NavBar";
 import styles from "./PetView.module.css"
 
+const PETTYPES = {
+    1: "Cat",
+    2: "Dog",
+    3: "Fish",
+    4: "Bird",
+    5: "Insect/Spider",
+    6: "Rodent",
+    7: "Amphibian/Reptile"
+  }
+
 const PetView = () => {
 
     const [pet, setPet] = useState({
@@ -20,6 +30,7 @@ const PetView = () => {
       });
       const { petId } = useParams();
       let navigate = useNavigate();
+
 
     
       useEffect(() => {
@@ -58,7 +69,7 @@ const PetView = () => {
                 </tr>
                 <tr>
                     <td>Type</td>
-                    <td>{pet.petTypeId}</td>
+                    <td>{PETTYPES[pet.petTypeId]}</td>
                 </tr>
                 <tr>
                     <td>Color</td>

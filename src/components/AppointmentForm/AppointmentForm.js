@@ -210,7 +210,7 @@ export const AppointmentForm = () => {
         <h1>Make a Pet Sitting Appointment</h1>
         <div className={`row my-4 ${styles.formHolder}`}>
           <Form className="my-4">
-            <Form.Group className="mb-3" controlId="pet">
+            <Form.Group className={StyleSheet.formHolder} controlId="pet">
               <Form.Label className={styles.apptText}>
                 Who would you like to make an appointment for?
               </Form.Label>
