@@ -1,15 +1,15 @@
 import styles from "./EmployeeProfileForm.module.css"
 import { useEffect, useState } from "react"
 import { NavBar } from "../NavBar/NavBar"
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { Table } from "react-bootstrap";
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
+import { Table } from "react-bootstrap"
+import { API } from "../../constants"
 
 export const EmployeeBioForm = () => {
+    const [show, setShow] = useState(false)
 
-    const [show, setShow] = useState(false);
-    
-    const handleShow = () => setShow(true);
+    const handleShow = () => setShow(true)
 
     const [employee, setEmployee] = useState({
         userId: "",
@@ -41,35 +41,43 @@ export const EmployeeBioForm = () => {
         }
     }, [feedback])
 
-
-
     const localParkerUser = localStorage.getItem("parker_user")
     const parkerUserObject = JSON.parse(localParkerUser)
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetches = [
-            fetch(`http://localhost:8088/employees?userId=${parkerUserObject.id}&_expand=user&_expand=petType`),
-            fetch(`http://localhost:8088/petTypes`),
-            fetch(`http://localhost:8088/zipcodes`),
-            fetch(`http://localhost:8088/employeeZipcodes?employeeId=${parkerUserObject.id}&_expand=zipcode`)
+            fetch(
+                `${API}/employees?userId=${parkerUserObject.id}&_expand=user&_expand=petType`
+            ),
+            fetch(`${API}/petTypes`),
+            fetch(`${API}/zipcodes`),
+            fetch(
+                `${API}/employeeZipcodes?employeeId=${parkerUserObject.id}&_expand=zipcode`
+            ),
         ]
         Promise.all(fetches)
-        .then((res) => res.map(el=>el.json()))//response.json() must be done to each element of the returned array
-        .then((data)=>{
-            data[0].then(x=>{
-                setEmployee(x[0])
+            .then((res) => res.map((el) => el.json())) //response.json() must be done to each element of the returned array
+            .then((data) => {
+                data[0].then((x) => {
+                    setEmployee(x[0])
+                })
+                data[1].then((x) => {
+                    setPetTypes(x)
+                })
+                data[2].then((x) => {
+                    setZipObjects(x)
+                })
+                data[3].then((x) => {
+                    const curZips =
+                        x.length === 0
+                            ? ""
+                            : x
+                                  .map((el) => el.zipcode.zip)
+                                  .sort()
+                                  .join(", ")
+                    setEnteredZips(curZips)
+                })
             })
-            data[1].then(x=>{
-                setPetTypes(x)
-            })
-            data[2].then(x=>{
-                setZipObjects(x)
-            })
-            data[3].then(x=>{
-                const curZips = x.length===0? "" : x.map(el=>el.zipcode.zip).sort().join(", ")
-                setEnteredZips(curZips)
-            })
-        })
     }, [])
 
     const petOptions = petTypes.map((petType) => {
@@ -80,41 +88,49 @@ export const EmployeeBioForm = () => {
         )
     })
 
-    const makeZipPostRequests = async (newZips) =>{
-
-        const data= await fetch(`http://localhost:8088/employeeZipcodes?employeeId=${parkerUserObject.id}&_expand=zipcode`)
+    const makeZipPostRequests = async (newZips) => {
+        const data = await fetch(
+            `${API}/employeeZipcodes?employeeId=${parkerUserObject.id}&_expand=zipcode`
+        )
         const zipdata = await data.json()
         console.log(zipdata)
         const curZips = zipdata.map((el) => el.zipcode.zip)
         newZips.sort()
         curZips.sort()
-        if (JSON.stringify(newZips)===JSON.stringify(curZips)){
+        if (JSON.stringify(newZips) === JSON.stringify(curZips)) {
             return []
         }
         //make delete requests
         const deletes = []
-        for (let zipObject of zipdata){
-            const zipcodeId = zipObjects.find(el=>el.zip===zipObject.zipcode.zip).id
+        for (let zipObject of zipdata) {
+            const zipcodeId = zipObjects.find(
+                (el) => el.zip === zipObject.zipcode.zip
+            ).id
             console.log(zipcodeId)
-            const deleteRequest = fetch(`http://localhost:8088/employeeZipcodes/${zipObject.id}`,  { method: 'DELETE' })
+            const deleteRequest = fetch(
+                `${API}/employeeZipcodes/${zipObject.id}`,
+                { method: "DELETE" }
+            )
             deletes.push(deleteRequest)
         }
         const deletePromises = Promise.all(deletes)
         //make post requests
         const adds = []
-        for (let zip of [...newZips]){
-            const zipcodeId = zipObjects.find(el=>el.zip===zip).id
+        for (let zip of [...newZips]) {
+            const zipcodeId = zipObjects.find((el) => el.zip === zip).id
             const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ employeeId:  parkerUserObject.id, zipcodeId})
-            };
-            const postRequest = fetch('http://localhost:8088/employeeZipcodes', requestOptions)
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    employeeId: parkerUserObject.id,
+                    zipcodeId,
+                }),
+            }
+            const postRequest = fetch(`${API}/employeeZipcodes`, requestOptions)
             adds.push(postRequest)
         }
         const addPromises = Promise.all(adds)
-        return deletePromises.then(()=>addPromises)
-    
+        return deletePromises.then(() => addPromises)
     }
 
     const handleSaveButtonClick = (clickEvent) => {
@@ -146,42 +162,40 @@ export const EmployeeBioForm = () => {
         delete updatedEmployee.petType
 
         const fetchArray = [
-            fetch(`http://localhost:8088/employees/${employee.id}`, {
+            fetch(`${API}/employees/${employee.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(updatedEmployee),
             }),
-            fetch(`http://localhost:8088/users/${updatedUser.id}`, {
+            fetch(`${API}/users/${updatedUser.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(updatedUser),
             }),
-            zipPostRequests
+            zipPostRequests,
         ]
 
-        Promise.all(fetchArray)
-            .then(() => {
-                setFeedback("Biography successfully saved")
-                localStorage.setItem("parker_user", JSON.stringify(updatedUser))
-            })
+        Promise.all(fetchArray).then(() => {
+            setFeedback("Biography successfully saved")
+            localStorage.setItem("parker_user", JSON.stringify(updatedUser))
+        })
     }
     const greeting =
         employee.user.fullName[employee.user.fullName.length - 1] === "s"
             ? `${employee.user.fullName}' Bio`
             : `${employee.user.fullName}'s Bio`
-    
-    const zipTable = zipObjects.map(el => {
+
+    const zipTable = zipObjects.map((el) => {
         return (
             <tr key={`table--${el.id}`}>
                 <td>{el.zip}</td>
                 <td>{el.location}</td>
             </tr>
         )
-
     })
 
     const updateZips = (evt) => {
@@ -279,7 +293,11 @@ export const EmployeeBioForm = () => {
                         </select>
                         <div className="d-flex justify-content-between">
                             <label htmlFor="phone">Zip Codes I Serve</label>
-                            <Button className={styles.zipButton}variant="outline-light" onClick={handleShow}>
+                            <Button
+                                className={styles.zipButton}
+                                variant="outline-light"
+                                onClick={handleShow}
+                            >
                                 View Locations
                             </Button>
                             <Modal
@@ -289,21 +307,19 @@ export const EmployeeBioForm = () => {
                                 aria-labelledby="example-modal-sizes-title-lg"
                             >
                                 <Modal.Header closeButton>
-                                <Modal.Title id="example-modal-sizes-title-lg">
-                                    Current Service Locations
-                                </Modal.Title>
+                                    <Modal.Title id="example-modal-sizes-title-lg">
+                                        Current Service Locations
+                                    </Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                <Table striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Zip</th>
-                                            <th>Location</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {zipTable}
-                                    </tbody>
+                                    <Table striped bordered hover>
+                                        <thead>
+                                            <tr>
+                                                <th>Zip</th>
+                                                <th>Location</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>{zipTable}</tbody>
                                     </Table>
                                 </Modal.Body>
                             </Modal>
@@ -318,8 +334,13 @@ export const EmployeeBioForm = () => {
                             <input
                                 className={styles.checkbox}
                                 onChange={(evt) => {
-                                    if (evt.target.checked){
-                                        setEnteredZips(zipObjects.map(el=>el.zip).sort().join(', '))
+                                    if (evt.target.checked) {
+                                        setEnteredZips(
+                                            zipObjects
+                                                .map((el) => el.zip)
+                                                .sort()
+                                                .join(", ")
+                                        )
                                     } else {
                                         setEnteredZips("")
                                     }
@@ -327,7 +348,10 @@ export const EmployeeBioForm = () => {
                                 type="checkbox"
                                 id="allLocations"
                                 checked={
-                                    enteredZips.split(', ').length === zipObjects.length ? true : false
+                                    enteredZips.split(", ").length ===
+                                    zipObjects.length
+                                        ? true
+                                        : false
                                 }
                             />
                         </div>
@@ -337,7 +361,7 @@ export const EmployeeBioForm = () => {
                             name="field5"
                             required
                             placeholder="separate by commas"
-                            value = {enteredZips}
+                            value={enteredZips}
                             onChange={updateZips}
                         />
                         <div className={styles.checkboxHolder}>
