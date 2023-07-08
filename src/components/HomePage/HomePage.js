@@ -6,6 +6,12 @@ import { NavBar } from "../NavBar/NavBar"
 import Spinner from 'react-bootstrap/Spinner'
 import "./HomePage.css"
 
+
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  };
+
 export const HomePage = () => {
     const [email, setEmail] = useState("")
     const [currentUser, setCurrentUser] = useState({})
@@ -13,14 +19,30 @@ export const HomePage = () => {
     const { loggedIn, setLoggedIn } = useContext(UserContext)
     const navigate = useNavigate()
 
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    const handleWindowResize = () => {
+      setWindowSize(getWindowSize());
+    };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
     useEffect(() => {
+        if (windowSize.innerWidth<992){
+            window.alert("This application is not optimized for smaller screens")
+        }
         if (loggedIn) {
             const localParkerUser = localStorage.getItem("parker_user")
             setCurrentUser(JSON.parse(localParkerUser))
         } else {
             setCurrentUser({})
         }
-    }, [loggedIn])
+    }, [loggedIn, windowSize])
 
     const login = (emailAddress) => {
         setShowSpinner(true);
