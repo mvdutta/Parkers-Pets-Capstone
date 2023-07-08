@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom"
 import { UserContext } from "../../App"
 import { API } from "../../constants"
 import { NavBar } from "../NavBar/NavBar"
+import Spinner from 'react-bootstrap/Spinner'
 import "./HomePage.css"
 
 export const HomePage = () => {
     const [email, setEmail] = useState("")
     const [currentUser, setCurrentUser] = useState({})
+    const [showSpinner, setShowSpinner] = useState(false);
     const { loggedIn, setLoggedIn } = useContext(UserContext)
     const navigate = useNavigate()
 
@@ -21,6 +23,7 @@ export const HomePage = () => {
     }, [loggedIn])
 
     const login = (emailAddress) => {
+        setShowSpinner(true);
          return fetch(`${API}/users?email=${emailAddress}`)
            .then((res) => res.json())
            .then((foundUsers) => {
@@ -44,7 +47,7 @@ export const HomePage = () => {
              } else {
                whichProfile = "/employeeprofile";
              }
-
+             setShowSpinner(false)
              navigate(whichProfile);
            });
 
@@ -125,6 +128,12 @@ export const HomePage = () => {
                 <button className="login-button" type="submit">
                   Sign In
                 </button>
+                <div>{showSpinner ? (
+                  <Spinner animation="border" variant="muted" />
+                ) : (
+                  ""
+                )}
+                </div>
               </form>
               <p className="login-text">Don't have an account yet?</p>
               <p className="login-text">
@@ -132,9 +141,15 @@ export const HomePage = () => {
                   Register Here
                 </Link>
               </p>
-              <button className="guest-button" type="submit" onClick={(e) => {
-                handleGuestLogin(e)
-              }}>Guest Sign In</button>
+              <button
+                className="guest-button"
+                type="submit"
+                onClick={(e) => {
+                  handleGuestLogin(e);
+                }}
+              >
+                Guest Sign In
+              </button>
             </div>
           </div>
         </div>
