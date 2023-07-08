@@ -32,7 +32,7 @@ export const NavBar = () => {
     
   return (
     <div className={styles.navBar}>
-          <img src="/pps-logo4.png" className={styles.logo} />
+          <img src="/pps-logo4.png" className={styles.logo} alt="parker's pet sitting logo"/>
         <ul >
             <li>{loggedIn && <div className={styles.navWelcome}>Welcome {currentUser.fullName}</div>}</li>
             <li><Link className={styles.navLink} to="/">Home</Link></li>
