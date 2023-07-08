@@ -19,30 +19,15 @@ export const HomePage = () => {
     const { loggedIn, setLoggedIn } = useContext(UserContext)
     const navigate = useNavigate()
 
-    const [windowSize, setWindowSize] = useState(getWindowSize());
-
-    const handleWindowResize = () => {
-      setWindowSize(getWindowSize());
-    };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
 
     useEffect(() => {
-        if (windowSize.innerWidth<992){
-            window.alert("This application is not optimized for smaller screens")
-        }
         if (loggedIn) {
             const localParkerUser = localStorage.getItem("parker_user")
             setCurrentUser(JSON.parse(localParkerUser))
         } else {
             setCurrentUser({})
         }
-    }, [loggedIn, windowSize])
+    }, [loggedIn])
 
     const login = (emailAddress) => {
         setShowSpinner(true);

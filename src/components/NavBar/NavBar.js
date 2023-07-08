@@ -26,7 +26,7 @@ export const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    if (windowSize.innerWidth < 992) {
+    if (windowSize.innerWidth < 1500) {
       window.alert("This application is not optimized for smaller screens");
     }
     if (loggedIn) {
