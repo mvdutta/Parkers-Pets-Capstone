@@ -6,12 +6,19 @@ import { NavBar } from "../NavBar/NavBar"
 import Spinner from 'react-bootstrap/Spinner'
 import "./HomePage.css"
 
+
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  };
+
 export const HomePage = () => {
     const [email, setEmail] = useState("")
     const [currentUser, setCurrentUser] = useState({})
     const [showSpinner, setShowSpinner] = useState(false);
     const { loggedIn, setLoggedIn } = useContext(UserContext)
     const navigate = useNavigate()
+
 
     useEffect(() => {
         if (loggedIn) {
