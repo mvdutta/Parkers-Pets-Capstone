@@ -20,41 +20,50 @@ export const HomePage = () => {
         }
     }, [loggedIn])
 
+    const login = (emailAddress) => {
+         return fetch(`${API}/users?email=${emailAddress}`)
+           .then((res) => res.json())
+           .then((foundUsers) => {
+             if (foundUsers.length === 1) {
+               const foundUser = foundUsers[0];
+               localStorage.setItem("parker_user", JSON.stringify(foundUser));
+               setCurrentUser(foundUser);
+               setLoggedIn(true);
+               return foundUser;
+             } else {
+               window.alert("Invalid login");
+             }
+           })
+           .then((foundUser) => {
+             if (!foundUser) {
+               return navigate("/");
+             }
+             let whichProfile = "";
+             if (foundUser.role === 1) {
+               whichProfile = "/clientprofile";
+             } else {
+               whichProfile = "/employeeprofile";
+             }
+
+             navigate(whichProfile);
+           });
+
+    }
+
     const handleLogin = (e) => {
         e.preventDefault()
         if (email === ""){
             window.alert("Please enter a valid email")
             return
         }
-        return fetch(`${API}/users?email=${email}`)
-            .then((res) => res.json())
-            .then((foundUsers) => {
-                if (foundUsers.length === 1) {
-                    const foundUser = foundUsers[0]
-                    localStorage.setItem(
-                        "parker_user",
-                        JSON.stringify(foundUser)
-                    )
-                    setCurrentUser(foundUser)
-                    setLoggedIn(true)
-                    return foundUser
-                } else {
-                    window.alert("Invalid login")
-                }
-            })
-            .then((foundUser) => {
-                if (!foundUser) {
-                    return navigate("/")
-                }
-                let whichProfile = ""
-                if (foundUser.role === 1) {
-                    whichProfile = "/clientprofile"
-                } else {
-                    whichProfile = "/employeeprofile"
-                }
+        login(email)   
+    }
 
-                navigate(whichProfile)
-            })
+    const handleGuestLogin = (e) => {
+        e.preventDefault()
+        const address = "guest@email.com"
+        setEmail(address)
+        login(address)
     }
 
     function playVideo(e) {
@@ -124,8 +133,7 @@ export const HomePage = () => {
                 </Link>
               </p>
               <button className="guest-button" type="submit" onClick={(e) => {
-                setEmail("guest@email.com")
-                handleLogin(e)
+                handleGuestLogin(e)
               }}>Guest Sign In</button>
             </div>
           </div>
