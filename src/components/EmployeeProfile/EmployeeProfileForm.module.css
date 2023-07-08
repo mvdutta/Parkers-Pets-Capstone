@@ -103,15 +103,15 @@
 	font-style: normal;
 	width: 33%;
     border-radius: 7px;
-	border: none;
+	border: gray;
 	margin-bottom: 50px;
     cursor: pointer;
-	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	box-shadow: 3px 3px 4px 1px rgba(0,0,0,.5);
 }
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
 {
-	background: #EAE3EA;
+	background: #efb9b1;
     color: black;
 }
 
@@ -151,4 +151,17 @@
 	margin-bottom: 50px;
 	border-radius: 10px;
   
+  }
+  .zipButton {
+	background-color: rgb(118, 119, 86);
+	text-decoration: none;
+	border: 1px solid grey;
+	color: white;
+
+  }
+  .zipButton:hover {
+	background-color: rgb(228, 228, 164);
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
   }

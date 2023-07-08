@@ -4,6 +4,9 @@
     top: 190px;
     left: 900px;
   }
+  .pageDivider {
+    margin-bottom: 0;
+  }
 
   .catImage {
     width: 80%;
@@ -39,6 +42,23 @@
   .serviceSubheader {
     margin-left: 165px;
     margin-bottom: 100px;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 200px;
+  }
+  .backButton {
+    border: none;
+    background-color: #B56357;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.5);
+    width: 75px;
+    font-size: 16px;
   }
  
 

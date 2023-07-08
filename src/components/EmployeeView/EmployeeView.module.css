@@ -1,0 +1,42 @@
+.imgholder{
+    display: flex;
+    justify-content:flex-start;
+}
+
+.imgholder img{
+    display: block;
+  	width: 175px;
+	height: 175px;
+	object-fit: cover;
+	border: 2px solid #8b5e57;
+	margin-bottom: 25px;
+    margin-top: 20px;
+	border-radius: 10px;
+}
+.bioHolder {
+    width: 50%;
+}
+.cardText {
+    font-size: 17px;
+    text-align:justify;
+}
+.empTable {
+    margin-top: -10px;
+}
+.empTable p {
+    font-size: 17px;
+    margin-bottom: 25px;
+    text-align:justify;
+}
+.backButton {
+    background-color: rgb(118, 119, 86);
+	text-decoration: none;
+	border: 1px solid grey;
+	color: white;
+}
+.backButton:hover {
+    background-color: rgb(228, 228, 164);
+	border: 1px solid grey;
+	box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	text-decoration: none;
+}

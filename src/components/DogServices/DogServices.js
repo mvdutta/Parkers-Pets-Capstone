@@ -4,11 +4,15 @@ import { NavBar } from '../NavBar/NavBar'
 import styles from "./DogServices.module.css"
 
 export const DogServices = () => {
+    const navigate = useNavigate()
   return (<>
   <NavBar />
     <h1>Dog Sitting Services</h1>
-    <hr className={styles.pageBreak}></hr>
+    <hr className={styles.pageDivider}></hr>
       <img src="/dog-image2.png" className={styles.petGroup} />
+      <div className={styles.buttonContainer}>
+      <button className={styles.backButton} onClick={()=> {navigate(-1)}}>Go Back</button>
+      </div>
       <h2 className={styles.serviceSubheader}>Choose the flat-rate plan that's best for your dog. </h2>
       <div className={styles.serviceContainer}>
         <div className={styles.catArea}>

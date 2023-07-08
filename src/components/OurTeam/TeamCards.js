@@ -16,7 +16,7 @@ export const TeamCard = ({image, name, petType, meds, icon, bio }) => {
           className={`card-img-top ${styles.profileImage}`}
           alt="..."
         />
-        <div className="card-body">
+        <div className={`card-body ${styles.cardBody}`}>
           <h5 className="card-title">{name}</h5>
           <p className="card-text"> Specialty: {petType}</p>
           <p className={`card-text ${styles.cardText}`}>

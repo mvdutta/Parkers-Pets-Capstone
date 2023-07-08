@@ -1,10 +1,3 @@
-.petCardHolder {
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .welcomeMessage {
     font-weight:bold;
@@ -12,51 +5,35 @@
     margin-bottom: 7%;
     margin-top: 3%;
     color: rgb(49, 56, 56);
-    margin-left: 3%;
+    text-align: center;
 }
 
-.custom-shape-divider-top-1666820762 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-} 
 
-.custom-shape-divider-top-1666820762 svg {
-    position: relative;
-    display: block;
-    width: calc(123% + 1.3px);
-    height: 269px;
-} 
-
-.custom-shape-divider-top-1666820762 .shape-fill {
-    fill: #bce7f1;
-} 
-.divider-wrapper {
-    position: relative;
-    margin-top: 9%;
-    background-color: #EFEFEF;
-} 
 
   .petCardHolder{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 50px 35px;
     margin-top: -50px;
-
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   .petName {
     font-weight: 300;
+  }
+
+  .addPetLink {
+    margin-top: 25px;
+    font-size: 25px;
+    color: rgba(255, 59, 63, 0.5);
   }
 
   .newPetLink {
       text-decoration: none;
       color: white;
-  }
-  .newPetLink:hover {
-    color: white
   }
   .newPetButton {
 	  display: block;
@@ -67,10 +44,12 @@
 	  text-align: center;
 	  font-style: normal;
 	  width: 10%;
-    border-radius: 7px;
-	  border: none;
+    border-radius: 15px;
+	  border: gray;
     margin-top: 50px;
     cursor: pointer;
-	  box-shadow: 3px 3px 8px 1px rgba(0,0,0,.5);
+	  box-shadow: 3px 3px 5px 1px rgba(0,0,0,.6);
+    margin-right: auto;
+    margin-left: auto;
   }
   
