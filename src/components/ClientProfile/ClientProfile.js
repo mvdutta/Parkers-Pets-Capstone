@@ -61,6 +61,10 @@ export const ClientProfile = () => {
             <button
                 className={styles.deleteButton}
                 onClick={() => {
+                    if (currentUser.email === "guest@email.com") {
+                        window.alert("Guest Users do not have access to this feature")
+                        return
+                    } 
                     const confirmed = window.confirm(
                         "Are you sure you want to delete your profile?"
                     )
