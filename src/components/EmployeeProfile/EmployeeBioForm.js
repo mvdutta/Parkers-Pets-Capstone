@@ -93,7 +93,6 @@ export const EmployeeBioForm = () => {
             `${API}/employeeZipcodes?employeeId=${parkerUserObject.id}&_expand=zipcode`
         )
         const zipdata = await data.json()
-        console.log(zipdata)
         const curZips = zipdata.map((el) => el.zipcode.zip)
         newZips.sort()
         curZips.sort()
@@ -106,7 +105,6 @@ export const EmployeeBioForm = () => {
             const zipcodeId = zipObjects.find(
                 (el) => el.zip === zipObject.zipcode.zip
             ).id
-            console.log(zipcodeId)
             const deleteRequest = fetch(
                 `${API}/employeeZipcodes/${zipObject.id}`,
                 { method: "DELETE" }

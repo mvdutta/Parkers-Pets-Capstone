@@ -48,8 +48,6 @@ export const AppointmentForm = () => {
         serviceId: 0,
     })
 
-    // const [selectedSitter, setSelectedSitter] = useState({ employeeId: 0 })
-
     useEffect(() => {
         const localParkerUser = localStorage.getItem("parker_user")
         const parkerUserObject = JSON.parse(localParkerUser)
@@ -72,7 +70,6 @@ export const AppointmentForm = () => {
             fetch(`${API}/services`).then((res) => res.json()),
         ]
         Promise.all(fetches).then((data) => {
-            console.log(data[0])
             setClientUser({ ...clientUser, ...data[0][0] })
             setPets(data[1])
             setServices(data[2])
