@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Parker's Pet Sitting
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ***An app that connects pet owners with qualified and reliable pet sitters*** 
+>View Deployed App: [Parker's Pet Sitting](https://parkers-pets-capstone.vercel.app/)<br>
+    - Sign in as a guest user or register a new user <br>
+    - Note: The app is not optimized for smaller screens and best viewed on desktop screens
+ <br><br>
 
-## Available Scripts
+# Application Overview  
 
-In the project directory, you can run:
+>Parker's Pet Sitting is a React application I created for my frontend capstone project for Nashville Software School. It is styled using vanilla CSS and React-Bootstrap, and uses a JSON-server backend.
 
-### `npm start`
+>This application provides peace of mind for pet owners when they need to leave their pet in the care of others. Parker's Pet Sitting provides a premium pet sitting service for most types of pets, including spiders and rodents. Pet sitters specialize in the type of pet they care for, and many are qualified to provide advanced care and administer medications. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Features
+There are two types of users that can register and log in to their account: clients and employees<br>
+ 
+1. Clients can view the website, create a new account, sign in, view employees, create a profile for themselves and for their pets, match with a pet sitter in their area, and schedule appointments. 
+2. Employees can view the website, create a new account and sign in, create a profile and biography, and view appointments. 
+   
+# Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-black?style=for-the-badge)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation Instructions
 
-### `npm run build`
+Requirements: [NPM](https://www.npmjs.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. In the terminal, run  ```git clone https://github.com/mvdutta/Parkers-Pets-Capstone.git```
+2. Move into the folder you just created 
+3. Run ```npm install```
+4. Run ```npm start```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Author
+### Maia Dutta
+[<img alt="Github" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">](https://github.com/mvdutta)
+[<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/in/maia-v-dutta/)
+[<img alt="Portfolio" src="https://img.shields.io/badge/PORTFOLIO-purple?style=for-the-badge&logo=l&logoColor=white">](https://maiadutta.com)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
